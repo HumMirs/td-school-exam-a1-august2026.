@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 Movers – Listening (Greetings)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6EC;
+    --paper-line:#CFE0E8;
+    --ink:#2C3B4E;
+    --ink-soft:#5B6B7C;
+    --pencil:#F2B705;
+    --marker:#E8573F;
+    --chalk-green:#3E8E5C;
+    --sky:#4C8FBF;
+    --card:#FFFFFF;
+    --shadow: 0 6px 0 rgba(44,59,78,0.08);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(var(--paper) 0px, var(--paper) 34px, var(--paper-line) 35px);
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    padding-bottom:80px;
+  }
+  header{ text-align:center; padding:44px 20px 28px; }
+  header h1{
+    font-family:'Fredoka', sans-serif;
+    font-size:clamp(26px,5vw,40px);
+    margin:0;
+    color:var(--ink);
+  }
+  header .underline{
+    width:120px; height:6px; background:var(--pencil);
+    border-radius:4px; margin:14px auto 18px; transform:rotate(-1deg);
+  }
+  header p{ font-size:16px; color:var(--ink-soft); max-width:520px; margin:0 auto; font-weight:600; }
+
+  nav.tabs{
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    padding:12px 16px 20px; position:sticky; top:0; background:var(--paper); z-index:50;
+  }
+  nav.tabs button{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:14px;
+    padding:10px 16px; border-radius:10px; border:2px solid var(--ink);
+    background:var(--card); color:var(--ink); cursor:pointer;
+    box-shadow: var(--shadow); transition: transform .12s ease;
+  }
+  nav.tabs button:hover{ transform: translateY(-2px); }
+  nav.tabs button.active{ background:var(--sky); color:#fff; border-color:var(--sky); }
+
+  main{ max-width:900px; margin:0 auto; padding:0 16px; }
+  .page{ display:none; }
+  .page.active{ display:block; animation: fadeIn .3s ease; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .page-card{
+    background:var(--card); border:2px solid var(--ink); border-radius:16px;
+    box-shadow: var(--shadow); padding:26px 22px; margin-bottom:24px;
+  }
+  .page-card h2{
+    font-family:'Fredoka', sans-serif; font-size:22px; margin:0 0 6px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:50%; background:var(--pencil);
+    color:var(--ink); font-family:'Fredoka',sans-serif; font-size:15px; flex:0 0 auto;
+  }
+  .page-card .sub{ color:var(--ink-soft); font-size:14px; margin:0 0 20px; font-weight:600; }
+
+  /* Listening player */
+  .listen-box{
+    background:var(--paper); border:2px dashed var(--pencil); border-radius:14px;
+    padding:20px; text-align:center; margin-bottom:24px;
+  }
+  .listen-box .icon{ font-size:36px; }
+  .listen-box p{ font-weight:700; color:var(--ink-soft); font-size:13.5px; margin:8px 0 16px; }
+  .listen-buttons{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .listen-buttons button{
+    font-family:'Fredoka', sans-serif; font-weight:700; font-size:15px;
+    padding:12px 24px; border-radius:12px; border:2px solid var(--ink); cursor:pointer;
+  }
+  #playBtn{ background:var(--chalk-green); color:#fff; }
+  #stopBtn{ background:var(--marker); color:#fff; }
+  .no-speech-note{ display:none; color:var(--marker); font-weight:700; font-size:13px; margin-top:10px; }
+
+  .video-screen{
+    background:linear-gradient(160deg,#2C3B4E,#1a2530);
+    border-radius:14px;
+    padding:30px 20px;
+    margin-bottom:16px;
+    min-height:180px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .video-screen .avatar{
+    font-size:64px;
+    transition: transform .25s ease;
+    animation: bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+  .video-screen .speaker-name{
+    font-family:'Fredoka', sans-serif;
+    color:#fff;
+    font-size:15px;
+    margin-top:10px;
+    background:rgba(255,255,255,0.12);
+    padding:4px 14px;
+    border-radius:20px;
+  }
+  .video-screen .idle-msg{
+    color:rgba(255,255,255,0.6);
+    font-weight:700;
+    font-size:14px;
+  }
+  .video-screen .rec-dot{
+    position:absolute;
+    top:12px; left:14px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--marker);
+    display:none;
+  }
+  .video-screen.playing .rec-dot{ display:block; animation: pulse 1s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+  .q{ padding:14px 0; border-top:1px dashed #DCE3E8; }
+  .q:first-of-type{ border-top:none; }
+  .q .qtext{ font-weight:800; margin-bottom:10px; font-size:15.5px; }
+  .options{ display:flex; flex-wrap:wrap; gap:8px; }
+  .opt{
+    border:2px solid #D7DEE4; background:#FBFCFD; padding:8px 14px; border-radius:10px;
+    cursor:pointer; font-weight:700; font-size:14px; transition: all .12s ease; user-select:none;
+  }
+  .opt:hover{ border-color:var(--sky); }
+  .opt.selected{ background:var(--sky); border-color:var(--sky); color:#fff; }
+  .opt.correct{ background:var(--chalk-green) !important; border-color:var(--chalk-green) !important; color:#fff !important; }
+  .opt.incorrect{ background:var(--marker) !important; border-color:var(--marker) !important; color:#fff !important; }
+
+  select.match-select{
+    font-family:'Nunito', sans-serif; font-size:14.5px; font-weight:700;
+    padding:8px 10px; border-radius:8px; border:2px solid #D7DEE4;
+    background:#FBFCFD; color:var(--ink); width:100%; max-width:280px;
+  }
+  select.match-select:focus{ outline:none; border-color:var(--sky); }
+  .match-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .match-word{ font-weight:800; min-width:200px; }
+  .match-row.correct select{ border-color:var(--chalk-green); background:#EAF7EE; }
+  .match-row.incorrect select{ border-color:var(--marker); background:#FDECEA; }
+  .correct-hint{ font-size:12.5px; color:var(--chalk-green); font-weight:800; margin-left:4px; }
+  .incorrect-hint{ font-size:12.5px; color:var(--marker); font-weight:800; margin-left:4px; }
+
+  .tf-options{ display:flex; gap:10px; }
+  .tf-opt{
+    border:2px solid #D7DEE4; background:#FBFCFD; padding:9px 22px; border-radius:10px;
+    cursor:pointer; font-weight:800; font-size:14px; user-select:none;
+  }
+  .tf-opt:hover{ border-color:var(--sky); }
+  .tf-opt.selected{ background:var(--sky); border-color:var(--sky); color:#fff; }
+  .tf-opt.correct{ background:var(--chalk-green) !important; border-color:var(--chalk-green) !important; color:#fff !important; }
+  .tf-opt.incorrect{ background:var(--marker) !important; border-color:var(--marker) !important; color:#fff !important; }
+
+  .nav-buttons{ display:flex; justify-content:space-between; margin-top:6px; }
+  .nav-buttons button{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:15px;
+    padding:10px 20px; border-radius:10px; border:2px solid var(--ink);
+    background:var(--card); cursor:pointer; box-shadow: var(--shadow);
+  }
+  .submit-btn{
+    display:block; margin:10px auto 30px; font-family:'Fredoka', sans-serif;
+    font-weight:700; font-size:19px; padding:16px 44px; border-radius:14px;
+    border:2px solid var(--ink); background:var(--marker); color:#fff; cursor:pointer;
+    box-shadow: 0 6px 0 rgba(44,59,78,0.25);
+  }
+  .submit-btn:active{ transform: translateY(3px); box-shadow:none; }
+
+  #resultBox{
+    display:none; background:var(--card); border:3px solid var(--ink); border-radius:18px;
+    padding:30px 24px; text-align:center; max-width:900px; margin:0 auto 40px; box-shadow: var(--shadow);
+  }
+  #resultBox h2{ font-family:'Fredoka', sans-serif; font-size:26px; margin:0 0 6px; }
+  #resultBox .stars{ font-size:34px; margin:10px 0; }
+  .score-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin:20px 0; }
+  .score-grid .cell{ background:var(--paper); border:2px solid var(--paper-line); border-radius:12px; padding:14px 8px; }
+  .score-grid .cell .num{ font-family:'Fredoka', sans-serif; font-size:22px; color:var(--sky); }
+  .score-grid .cell .lbl{ font-size:12.5px; font-weight:700; color:var(--ink-soft); }
+  .total{ font-family:'Fredoka', sans-serif; font-size:20px; margin-top:6px; }
+  .retry-btn{
+    margin-top:18px; font-family:'Fredoka', sans-serif; font-weight:600;
+    padding:10px 22px; border-radius:10px; border:2px solid var(--ink); background:var(--pencil); cursor:pointer;
+  }
+
+  #gateOverlay{
+    position:fixed; inset:0; background:rgba(44,59,78,0.55); backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center; z-index:200; padding:16px;
+  }
+  .gate-card{
+    background:var(--card); border:3px solid var(--ink); border-radius:18px;
+    padding:32px 26px; max-width:380px; width:100%; text-align:center;
+    box-shadow:0 10px 0 rgba(44,59,78,0.2);
+  }
+  .gate-card h2{ font-family:'Fredoka', sans-serif; margin:0 0 4px; font-size:24px; }
+  .gate-card p{ font-size:14px; color:var(--ink-soft); font-weight:600; margin:0 0 18px; }
+  .gate-card input, .gate-card select{
+    width:100%; padding:11px 12px; margin-bottom:12px; border-radius:10px;
+    border:2px solid #D7DEE4; font-family:'Nunito', sans-serif; font-weight:700;
+    font-size:14.5px; background:#fff; color:var(--ink);
+  }
+  .gate-card input:focus, .gate-card select:focus{ outline:none; border-color:var(--sky); }
+  .gate-card button{
+    width:100%; font-family:'Fredoka', sans-serif; font-weight:700; font-size:16px;
+    padding:12px; border-radius:12px; border:2px solid var(--ink);
+    background:var(--sky); color:#fff; cursor:pointer; margin-top:6px;
+  }
+  .gate-error{ color:var(--marker); font-size:13px; font-weight:800; min-height:18px; margin-bottom:4px; }
+  #appMain{ display:none; }
+  .student-strip{
+    max-width:900px; margin:0 auto 6px; padding:0 16px; display:flex;
+    gap:8px; flex-wrap:wrap; justify-content:center;
+  }
+  .student-strip span{
+    background:var(--card); border:2px solid var(--paper-line); border-radius:20px;
+    padding:5px 14px; font-size:12.5px; font-weight:800; color:var(--ink-soft);
+  }
+
+  .share-note{
+    font-size:12.5px; color:var(--ink-soft); font-weight:700; background:#FFF6E0;
+    border:1px dashed var(--pencil); border-radius:10px; padding:8px 12px; margin-bottom:16px;
+  }
+  .results-table-wrap{ overflow-x:auto; }
+  table.results-table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.results-table th, table.results-table td{
+    border-bottom:2px solid var(--paper-line); padding:9px 8px; text-align:left; white-space:nowrap;
+  }
+  table.results-table th{ font-family:'Fredoka', sans-serif; color:var(--ink-soft); font-size:12.5px; }
+  table.results-table tr:hover td{ background:#F7FBFD; }
+  .pct-pill{ display:inline-block; padding:3px 10px; border-radius:20px; font-weight:800; color:#fff; font-size:12px; }
+  .del-btn{
+    font-family:'Nunito', sans-serif; font-weight:800; font-size:12px; padding:6px 10px;
+    border-radius:8px; border:2px solid var(--marker); background:#FDECEA; color:var(--marker); cursor:pointer;
+  }
+  .del-btn:hover{ background:var(--marker); color:#fff; }
+  .student-name-btn{
+    background:none; border:none; padding:0; cursor:pointer;
+    font-family:'Nunito', sans-serif; font-weight:800; font-size:13.5px;
+    color:var(--sky); text-decoration:underline;
+  }
+  .student-name-btn:hover{ color:var(--ink); }
+  .detail-row td{ background:#F7FBFD; padding:16px; }
+  .detail-wrap{ display:flex; flex-direction:column; gap:14px; white-space:normal; }
+  .detail-block h4{
+    font-family:'Fredoka', sans-serif; font-size:14px; margin:0 0 8px; color:var(--ink-soft);
+  }
+  .detail-item{
+    font-size:12.5px; font-weight:700; padding:6px 10px; border-radius:8px; margin-bottom:6px;
+  }
+  .detail-item.correct{ background:#EAF7EE; color:var(--chalk-green); }
+  .detail-item.incorrect{ background:#FDECEA; color:var(--marker); }
+  .detail-icon{ margin-right:4px; }
+  .detail-q{ color:var(--ink); }
+  .detail-answer{ font-weight:700; }
+  .teacher-group{ margin-bottom:26px; }
+  .teacher-heading{
+    font-family:'Fredoka', sans-serif; font-size:17px; color:var(--ink); background:var(--paper);
+    border:2px solid var(--paper-line); border-radius:10px; padding:8px 14px; margin:0 0 8px;
+  }
+  .teacher-count{ font-family:'Nunito', sans-serif; font-size:12.5px; font-weight:700; color:var(--ink-soft); }
+  .refresh-btn{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:13.5px; padding:8px 16px;
+    border-radius:10px; border:2px solid var(--ink); background:var(--card); cursor:pointer; margin-bottom:14px;
+  }
+  .empty-note{ color:var(--ink-soft); font-weight:700; font-size:14px; padding:20px 0; text-align:center; }
+</style>
+</head>
+<body>
+
+<div id="gateOverlay">
+  <div class="gate-card">
+    <h2>Salam! 👋</h2>
+    <p>Testə başlamazdan əvvəl məlumatlarını daxil et.</p>
+    <input id="gateFirst" placeholder="Ad" autocomplete="off">
+    <input id="gateLast" placeholder="Soyad" autocomplete="off">
+    <select id="gateTeacher">
+      <option value="">-- Müəllimi seç --</option>
+      <option value="Qaçay müəllim">Qaçay müəllim</option>
+      <option value="Aysel müəllimə">Aysel müəllimə</option>
+      <option value="Humay müəllimə">Humay müəllimə</option>
+      <option value="Tavat müəllimə">Tavat müəllimə</option>
+      <option value="Zərifə müəllimə">Zərifə müəllimə</option>
+      <option value="Firuzə müəllimə">Firuzə müəllimə</option>
+      <option value="Leyla müəllimə">Leyla müəllimə</option>
+      <option value="Xəzər müəllim">Xəzər müəllim</option>
+      <option value="Yasəmən müəllimə">Yasəmən müəllimə</option>
+    </select>
+    <input id="gateGroup" placeholder="Qrup / Sinif" autocomplete="off">
+    <div class="gate-error" id="gateError"></div>
+    <button onclick="startTest()">Başla ➜</button>
+  </div>
+</div>
+
+<div id="appMain">
+
+<header>
+  <h1>🎧 A1 Movers – Listening (Greetings)</h1>
+  <div class="underline"></div>
+  <p>Dinlə, düşün və düzgün cavabı seç!</p>
+</header>
+
+<div class="student-strip" id="studentStrip"></div>
+
+<nav class="tabs">
+  <button data-page="0" class="active">1️⃣ Seçim</button>
+  <button data-page="1">2️⃣ Uyğunlaşdırma</button>
+  <button data-page="2">3️⃣ Doğru/Yanlış</button>
+</nav>
+
+<main>
+
+  <!-- PAGE 1: LISTENING + MULTIPLE CHOICE -->
+  <section class="page active" data-page="0">
+    <div class="page-card">
+      <h2><span class="badge">1</span> Listening — Multiple Choice</h2>
+      <p class="sub">Əvvəlcə dinlə, sonra sualları cavablandır.</p>
+
+      <div class="listen-box">
+        <div class="video-screen" id="videoScreen">
+          <div class="rec-dot"></div>
+          <div class="idle-msg" id="idleMsg">▶️ "Videoya bax" düyməsinə bas</div>
+          <div class="avatar" id="screenAvatar" style="display:none;">🙂</div>
+          <div class="speaker-name" id="screenSpeaker" style="display:none;"></div>
+        </div>
+        <p>Videoya bax və diqqətlə dinlə. İstəsən bir neçə dəfə təkrar izləyə bilərsən.</p>
+        <div class="listen-buttons">
+          <button id="playBtn" onclick="playListening()">▶️ Videoya bax</button>
+          <button id="stopBtn" onclick="stopListening()">⏹️ Dayandır</button>
+        </div>
+        <div class="no-speech-note" id="noSpeechNote">⚠️ Brauzeriniz səsli oxumanı dəstəkləmir.</div>
+      </div>
+
+      <div id="mcContainer"></div>
+    </div>
+    <div class="nav-buttons"><span></span><button onclick="goTo(1)">Növbəti ➜</button></div>
+  </section>
+
+  <!-- PAGE 2: MATCHING -->
+  <section class="page" data-page="1">
+    <div class="page-card">
+      <h2><span class="badge">2</span> Matching</h2>
+      <p class="sub">Salamlaşma cümləsini düzgün cavabla uyğunlaşdır.</p>
+      <div id="matchContainer"></div>
+    </div>
+    <div class="nav-buttons"><button onclick="goTo(0)">⟵ Geri</button><button onclick="goTo(2)">Növbəti ➜</button></div>
+  </section>
+
+  <!-- PAGE 3: TRUE / FALSE -->
+  <section class="page" data-page="2">
+    <div class="page-card">
+      <h2><span class="badge">3</span> True / False</h2>
+      <p class="sub">Dinlədiyin məlumata əsasən cümlənin doğru (True) və ya yanlış (False) olduğunu seç.</p>
+      <div id="tfContainer"></div>
+    </div>
+    <div class="nav-buttons"><button onclick="goTo(1)">⟵ Geri</button><span></span></div>
+  </section>
+
+  <button class="submit-btn" onclick="gradeAll()">✅ Nəticəni göstər</button>
+
+  <div id="resultBox"></div>
+
+  <!-- TEACHER RESULTS (password protected) -->
+  <section class="page" id="teacherPage" data-page="3">
+    <div class="page-card">
+      <h2><span class="badge">📊</span> Ümumi Nəticələr</h2>
+      <p class="sub">Bütün şagirdlərin nəticələri müəllim üzrə qruplaşdırılıb.</p>
+      <div class="share-note">ℹ️ Bu siyahı yalnız müəllimlər üçündür.</div>
+      <button class="refresh-btn" onclick="loadResults()">🔄 Yenilə</button>
+      <div class="results-table-wrap" id="resultsTableWrap">
+        <div class="empty-note">Yüklənir...</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div style="text-align:center; padding:10px 16px 30px;">
+  <button onclick="openTeacherLogin()" style="background:none;border:none;color:var(--ink-soft);font-size:12px;font-weight:700;cursor:pointer;text-decoration:underline;opacity:0.6;">🔐 Müəllim girişi</button>
+</div>
+
+<div id="teacherGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:250;padding:16px;">
+  <div class="gate-card">
+    <h2>🔐 Müəllim girişi</h2>
+    <p>Nəticələr cədvəlini görmək üçün parolu daxil et.</p>
+    <input id="teacherPassword" type="password" placeholder="Parol" autocomplete="off">
+    <div class="gate-error" id="teacherError"></div>
+    <button onclick="checkTeacherPassword()">Daxil ol ➜</button>
+    <button onclick="closeTeacherLogin()" style="background:var(--card);color:var(--ink);margin-top:8px;">Bağla</button>
+  </div>
+</div>
+
+</div><!-- /appMain -->
+
+<script>
+/* ---------------- LISTENING SCRIPT (video scenes) ---------------- */
+const sceneData = [
+  {speaker:"Scott", avatar:"👦", text:"Hello, I'm Scott. What's your name?"},
+  {speaker:"Kate", avatar:"👧", text:"Hi, my name is Kate. Nice to meet you."},
+  {speaker:"Scott", avatar:"👦", text:"What's your name?"},
+  {speaker:"Andy", avatar:"👦", text:"My name is Andy."},
+  {speaker:"Kate", avatar:"👧", text:"Nice to meet you, Andy."},
+  {speaker:"Andy", avatar:"👦", text:"Nice to meet you too."},
+  {speaker:"Kate", avatar:"👧", text:"How are you, Andy?"},
+  {speaker:"Andy", avatar:"👦", text:"I'm fine, how are you?"},
+  {speaker:"Kate", avatar:"👧", text:"I'm fine, thank you. And you?"},
+  {speaker:"Scott", avatar:"👦", text:"I'm great."},
+  {narrator:true, avatar:"📖", text:"The three friends say goodbye to each other.", speaker:"Narrator"},
+  {speaker:"Scott", avatar:"👦", text:"See you."},
+  {speaker:"Kate", avatar:"👧", text:"See you later."},
+  {speaker:"Andy", avatar:"👦", text:"See you later."}
+];
+
+/* ---- Per-character gender & voice assignment ---- */
+const speakerGenderMap = {
+  'Scott':'male', 'Andy':'male',
+  'Kate':'female',
+  'Narrator':'neutral'
+};
+
+const speakerVoiceMap = {};
+
+const femaleKeywords = ['female','zira','susan','samantha','victoria','karen','moira','tessa','fiona','kate','serena','allison','ava','amelie','emma','joanna','salli','kimberly','ivy','google uk english female','google us english'];
+const maleKeywords = ['male','david','mark','daniel','fred','alex','james','george','ryan','oliver','matthew','justin','eric','google uk english male'];
+
+function loadVoices(){
+  return new Promise(resolve=>{
+    let voices = window.speechSynthesis.getVoices();
+    if(voices.length){ resolve(voices); return; }
+    window.speechSynthesis.onvoiceschanged = () => {
+      resolve(window.speechSynthesis.getVoices());
+    };
+    setTimeout(()=>resolve(window.speechSynthesis.getVoices()), 800);
+  });
+}
+
+async function ensureVoiceMap(){
+  if(Object.keys(speakerVoiceMap).length) return;
+  const voices = await loadVoices();
+  const enVoices = voices.filter(v=>v.lang && v.lang.toLowerCase().startsWith('en'));
+  const pool = enVoices.length ? enVoices : voices;
+
+  const femalePool = pool.filter(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+  const malePool = pool.filter(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+
+  let maleIdx = 0, femaleIdx = 0, neutralIdx = 0;
+
+  const uniqueSpeakers = [...new Set(sceneData.map(s => s.narrator ? 'Narrator' : s.speaker))];
+  uniqueSpeakers.forEach(sp => {
+    const gender = speakerGenderMap[sp] || 'neutral';
+    let voice = null, pitch = 1;
+    if(gender === 'male'){
+      voice = malePool.length ? malePool[maleIdx % malePool.length] : (pool.length ? pool[0] : null);
+      pitch = 0.82 + (maleIdx % 3) * 0.05;
+      maleIdx++;
+    } else if(gender === 'female'){
+      voice = femalePool.length ? femalePool[femaleIdx % femalePool.length] : (pool.length ? pool[pool.length - 1] : null);
+      pitch = 1.18 + (femaleIdx % 3) * 0.06;
+      femaleIdx++;
+    } else {
+      voice = pool.length ? pool[neutralIdx % pool.length] : null;
+      pitch = 1.0;
+      neutralIdx++;
+    }
+    speakerVoiceMap[sp] = { voice, pitch };
+  });
+}
+
+function showScene(item){
+  document.getElementById('idleMsg').style.display = 'none';
+  const avatarEl = document.getElementById('screenAvatar');
+  const speakerEl = document.getElementById('screenSpeaker');
+  avatarEl.style.display = 'block';
+  avatarEl.textContent = item.avatar;
+  if(item.narrator){
+    speakerEl.style.display = 'none';
+  } else {
+    speakerEl.style.display = 'inline-block';
+    speakerEl.textContent = item.speaker;
+  }
+}
+
+function resetScreen(){
+  document.getElementById('videoScreen').classList.remove('playing');
+  document.getElementById('idleMsg').style.display = 'block';
+  document.getElementById('screenAvatar').style.display = 'none';
+  document.getElementById('screenSpeaker').style.display = 'none';
+}
+
+async function playListening(){
+  if(!('speechSynthesis' in window)){
+    document.getElementById('noSpeechNote').style.display = 'block';
+    return;
+  }
+  window.speechSynthesis.cancel();
+  await ensureVoiceMap();
+  document.getElementById('videoScreen').classList.add('playing');
+
+  sceneData.forEach((item, idx)=>{
+    const key = item.narrator ? 'Narrator' : item.speaker;
+    const voiceInfo = speakerVoiceMap[key] || {};
+    const u = new SpeechSynthesisUtterance(item.text);
+    if(voiceInfo.voice) u.voice = voiceInfo.voice;
+    u.lang = voiceInfo.voice ? voiceInfo.voice.lang : 'en-GB';
+    u.pitch = voiceInfo.pitch || 1;
+    u.rate = item.narrator ? 0.85 : 0.9;
+    u.onstart = () => showScene(item);
+    if(idx === sceneData.length - 1){
+      u.onend = () => resetScreen();
+    }
+    window.speechSynthesis.speak(u);
+  });
+}
+function stopListening(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  resetScreen();
+}
+
+/* ---------------- QUESTION DATA ---------------- */
+const mcData = [
+  {q:"Who is the first person to introduce himself?", opts:["Andy","Scott","Kate"], correct:1},
+  {q:"What does Scott ask Kate?", opts:["How old are you?","What's your name?","Where do you live?"], correct:1},
+  {q:"What does Kate say to Andy after he tells her his name?", opts:["Nice to meet you","How are you?","Goodbye"], correct:0},
+  {q:"Who is the third character introduced in the video?", opts:["Andy","Ben","Tom"], correct:0},
+  {q:"How does the video end?", opts:["They say hello.","They say goodbye and see each other later.","They ask each other's name."], correct:1},
+];
+
+const matchWords = [
+  "👋 Hello!",
+  "🙋 What's your name?",
+  "😊 How are you?",
+  "🤝 Nice to meet you!",
+  "👋 Goodbye!"
+];
+const matchOptions = [
+  {k:"a", t:"😊 I'm fine."},
+  {k:"b", t:"👋 Hi!"},
+  {k:"c", t:"📛 My name is Kate."},
+  {k:"d", t:"🤝 Nice to meet you too!"},
+  {k:"e", t:"👋 See you later!"}
+];
+const matchAnswers = ["b","c","a","d","e"];
+
+const tfData = [
+  {s:"Scott is the first person to introduce himself.", correct:true},
+  {s:"Kate says her name is Angie.", correct:false},
+  {s:"Andy tells the others his name.", correct:true},
+  {s:"When someone asks Andy how he is, he says he is sad.", correct:false},
+  {s:"At the end, the friends say goodbye to each other.", correct:true},
+];
+
+/* ---------------- RENDER ---------------- */
+function renderMC(){
+  const c = document.getElementById('mcContainer');
+  mcData.forEach((item,i)=>{
+    const div = document.createElement('div');
+    div.className = 'q';
+    div.innerHTML = `<div class="qtext">${i+1}. ${item.q}</div>
+      <div class="options" id="mc-${i}">
+        ${item.opts.map((o,j)=>`<div class="opt" data-idx="${j}" onclick="selectOpt(${i},${j})">${String.fromCharCode(65+j)}) ${o}</div>`).join('')}
+      </div>`;
+    c.appendChild(div);
+  });
+}
+window.mcSelected = new Array(mcData.length).fill(null);
+function selectOpt(qi, oi){
+  mcSelected[qi] = oi;
+  const wrap = document.getElementById('mc-'+qi);
+  [...wrap.children].forEach((el,idx)=>{ el.classList.toggle('selected', idx===oi); });
+}
+
+function renderMatch(){
+  const c = document.getElementById('matchContainer');
+  matchWords.forEach((w,i)=>{
+    const row = document.createElement('div');
+    row.className = 'q match-row';
+    row.id = 'match-row-'+i;
+    const opts = matchOptions.map(o=>`<option value="${o.k}">${o.k}) ${o.t}</option>`).join('');
+    row.innerHTML = `<div class="match-word">${i+1}. ${w}</div>
+      <select class="match-select" id="match-${i}">
+        <option value="">-- seç --</option>
+        ${opts}
+      </select>
+      <span id="match-hint-${i}"></span>`;
+    c.appendChild(row);
+  });
+}
+
+window.tfSelected = new Array(tfData.length).fill(null);
+function renderTF(){
+  const c = document.getElementById('tfContainer');
+  tfData.forEach((item,i)=>{
+    const div = document.createElement('div');
+    div.className = 'q';
+    div.innerHTML = `<div class="qtext">${i+1}. ${item.s}</div>
+      <div class="tf-options" id="tf-${i}">
+        <div class="tf-opt" data-val="true" onclick="selectTF(${i},true)">True</div>
+        <div class="tf-opt" data-val="false" onclick="selectTF(${i},false)">False</div>
+      </div>`;
+    c.appendChild(div);
+  });
+}
+function selectTF(qi, val){
+  tfSelected[qi] = val;
+  const wrap = document.getElementById('tf-'+qi);
+  [...wrap.children].forEach(el=>{
+    el.classList.toggle('selected', (el.dataset.val==='true')===val);
+  });
+}
+
+renderMC(); renderMatch(); renderTF();
+
+/* ---------------- STUDENT GATE ---------------- */
+let studentInfo = null;
+function startTest(){
+  const first = document.getElementById('gateFirst').value.trim();
+  const last = document.getElementById('gateLast').value.trim();
+  const teacher = document.getElementById('gateTeacher').value.trim();
+  const group = document.getElementById('gateGroup').value.trim();
+  const err = document.getElementById('gateError');
+  if(!first || !last || !teacher || !group){
+    err.textContent = 'Zəhmət olmasa bütün xanaları doldur.';
+    return;
+  }
+  err.textContent = '';
+  studentInfo = { first, last, teacher, group };
+  document.getElementById('gateOverlay').style.display = 'none';
+  document.getElementById('appMain').style.display = 'block';
+  document.getElementById('studentStrip').innerHTML = `
+    <span>👤 ${first} ${last}</span>
+    <span>🧑‍🏫 ${teacher}</span>
+    <span>🏫 ${group}</span>`;
+}
+
+/* ---------------- TEACHER ACCESS ---------------- */
+const TEACHER_PASSWORD = 'imtahan2026';
+function openTeacherLogin(){
+  document.getElementById('teacherGate').style.display = 'flex';
+  document.getElementById('teacherPassword').value = '';
+  document.getElementById('teacherError').textContent = '';
+  document.getElementById('teacherPassword').focus();
+}
+function closeTeacherLogin(){ document.getElementById('teacherGate').style.display = 'none'; }
+function checkTeacherPassword(){
+  const val = document.getElementById('teacherPassword').value;
+  if(val === TEACHER_PASSWORD){
+    closeTeacherLogin();
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('teacherPage').classList.add('active');
+    document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
+    window.scrollTo({top:0, behavior:'smooth'});
+    loadResults();
+  } else {
+    document.getElementById('teacherError').textContent = 'Parol yanlışdır.';
+  }
+}
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter' && document.getElementById('teacherGate').style.display === 'flex'){
+    checkTeacherPassword();
+  }
+});
+
+/* ---------------- TAB NAV ---------------- */
+function goTo(pageIdx){
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.dataset.page==pageIdx));
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.page==pageIdx));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.querySelectorAll('nav.tabs button').forEach(b=>{
+  b.addEventListener('click', ()=>goTo(b.dataset.page));
+});
+
+/* ---------------- GRADING ---------------- */
+function gradeAll(){
+  let mcScore=0, matchScore=0, tfScore=0;
+  const mcDetails = [];
+  const matchDetails = [];
+  const tfDetails = [];
+
+  mcData.forEach((item,i)=>{
+    const isCorrect = mcSelected[i]===item.correct;
+    if(isCorrect) mcScore++;
+    mcDetails.push({
+      q: item.q,
+      selectedText: mcSelected[i]!=null ? item.opts[mcSelected[i]] : null,
+      correctText: item.opts[item.correct],
+      isCorrect
+    });
+  });
+
+  matchAnswers.forEach((ans,i)=>{
+    const sel = document.getElementById('match-'+i);
+    const val = sel.value;
+    const isCorrect = val === ans;
+    if(isCorrect) matchScore++;
+    matchDetails.push({
+      word: matchWords[i],
+      selectedText: val ? matchOptions.find(o=>o.k===val).t : null,
+      correctText: matchOptions.find(o=>o.k===ans).t,
+      isCorrect
+    });
+  });
+
+  tfData.forEach((item,i)=>{
+    const isCorrect = tfSelected[i]===item.correct;
+    if(isCorrect) tfScore++;
+    tfDetails.push({
+      s: item.s,
+      selectedText: tfSelected[i]===null ? null : (tfSelected[i] ? 'True' : 'False'),
+      correctText: item.correct ? 'True' : 'False',
+      isCorrect
+    });
+  });
+
+  const total = mcScore+matchScore+tfScore;
+  const maxTotal = mcData.length + matchAnswers.length + tfData.length;
+  const pct = Math.round((total/maxTotal)*100);
+
+  const box = document.getElementById('resultBox');
+  box.style.display = 'block';
+  box.innerHTML = `
+    <h2>Təbriklər! 🎉</h2>
+    <p style="font-weight:800; font-size:16px;">Testi tamamladın!</p>
+    <p style="color:var(--ink-soft); font-weight:700; font-size:14px;">Nəticən müəllimə göndərildi. Növbəti dərsdə onunla müzakirə edə bilərsən.</p>
+    <p id="saveStatus" style="font-size:13px;color:var(--ink-soft);font-weight:700;">Göndərilir...</p>
+    <button class="retry-btn" onclick="location.reload()">🔄 Yenidən başla</button>
+  `;
+  box.scrollIntoView({behavior:'smooth', block:'start'});
+
+  saveResult({mcScore, matchScore, tfScore, total, maxTotal, pct, mcDetails, matchDetails, tfDetails});
+}
+
+/* ---------------- SHARED STORAGE ---------------- */
+function delay(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
+
+async function withRetry(fn, attempts, delayMs){
+  let lastErr;
+  for(let i=0; i<attempts; i++){
+    try{
+      return await fn();
+    }catch(err){
+      lastErr = err;
+      if(i < attempts-1) await delay(delayMs);
+    }
+  }
+  throw lastErr;
+}
+
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzfsRoBC_W0JYm3d4srGPxdjr_zUYS6ABV5W9UGJ86jMd85l3nATx9iQEdiPAKU664t/exec';
+
+async function saveResult(scores){
+  const statusEl = document.getElementById('saveStatus');
+  try{
+    const record = {
+      first: studentInfo.first,
+      last: studentInfo.last,
+      teacher: studentInfo.teacher,
+      group: studentInfo.group,
+      mc: scores.mcScore,
+      match: scores.matchScore,
+      tf: scores.tfScore,
+      total: scores.total,
+      max: scores.maxTotal,
+      pct: scores.pct,
+      details: {
+        mc: scores.mcDetails,
+        match: scores.matchDetails,
+        tf: scores.tfDetails
+      }
+    };
+    await withRetry(() => fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(record)
+    }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+    if(statusEl) statusEl.textContent = '✅ Nəticə ümumi cədvələ əlavə olundu.';
+  }catch(err){
+    if(statusEl) statusEl.innerHTML = '⚠️ Nəticə yadda saxlanmadı (server müvəqqəti cavab vermir). Bir az sonra yenidən sınayın. Detal: '+(err && err.message ? err.message : String(err));
+    console.error('Save error:', err);
+  }
+}
+
+function pctColor(pct){
+  if(pct>=80) return '#3E8E5C';
+  if(pct>=60) return '#4C8FBF';
+  if(pct>=40) return '#F2B705';
+  return '#E8573F';
+}
+
+async function loadResults(){
+  const wrap = document.getElementById('resultsTableWrap');
+  if(!wrap) return;
+  wrap.innerHTML = '<div class="empty-note">Yüklənir...</div>';
+
+  try{
+    const res = await withRetry(() => fetch(SHEETS_URL).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+    const data = await res.json();
+    const records = data.results || [];
+    records.forEach(r => { r._key = r.id; });
+    records.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    if(records.length===0){
+      wrap.innerHTML = '<div class="empty-note">Hələ heç bir nəticə yoxdur.</div>';
+      return;
+    }
+
+    window.__resultsRecords = {};
+    records.forEach(r => { window.__resultsRecords[r._key] = r; });
+
+    const rows = records.map(r=>{
+      const d = new Date(r.date);
+      const dateStr = d.toLocaleDateString('az-AZ') + ' ' + d.toLocaleTimeString('az-AZ',{hour:'2-digit',minute:'2-digit'});
+      return `<tr>
+        <td><button class="student-name-btn" onclick="toggleDetail('${r._key}')">${r.first} ${r.last}</button></td>
+        <td>${r.group}</td>
+        <td>${r.mc}/${mcData.length}</td>
+        <td>${r.match}/${matchAnswers.length}</td>
+        <td>${r.tf}/${tfData.length}</td>
+        <td><span class="pct-pill" style="background:${pctColor(r.pct)}">${r.pct}/100</span></td>
+        <td>${dateStr}</td>
+        <td><button class="del-btn" onclick="deleteResult('${r._key}')">🗑️ Sil</button></td>
+      </tr>
+      <tr class="detail-row" id="detail-${safeId(r._key)}" style="display:none;">
+        <td colspan="8">${generateDetailHtml(r)}</td>
+      </tr>`;
+    });
+
+    const byTeacher = {};
+    records.forEach((r,i)=>{
+      const t = r.teacher || 'Naməlum müəllim';
+      if(!byTeacher[t]) byTeacher[t] = [];
+      byTeacher[t].push(rows[i]);
+    });
+
+    const teacherOrder = ["Qaçay müəllim","Aysel müəllimə","Humay müəllimə","Tavat müəllimə",
+      "Zərifə müəllimə","Firuzə müəllimə","Leyla müəllimə","Xəzər müəllim","Yasəmən müəllimə"];
+    const teacherNames = Object.keys(byTeacher).sort((a,b)=>{
+      const ia = teacherOrder.indexOf(a), ib = teacherOrder.indexOf(b);
+      if(ia===-1 && ib===-1) return a.localeCompare(b);
+      if(ia===-1) return 1;
+      if(ib===-1) return -1;
+      return ia-ib;
+    });
+
+    const groupsHtml = teacherNames.map(t=>{
+      return `<div class="teacher-group">
+        <h3 class="teacher-heading">🧑‍🏫 ${t} <span class="teacher-count">(${byTeacher[t].length} şagird)</span></h3>
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <thead><tr>
+              <th>Şagird</th><th>Qrup</th>
+              <th>Seçim</th><th>Uyğ.</th><th>D/Y</th>
+              <th>Bal /100</th><th>Tarix</th><th></th>
+            </tr></thead>
+            <tbody>${byTeacher[t].join('')}</tbody>
+          </table>
+        </div>
+      </div>`;
+    }).join('');
+
+    wrap.innerHTML = groupsHtml;
+  }catch(err){
+    wrap.innerHTML = '<div class="empty-note">Nəticələr yüklənərkən xəta baş verdi.<br><span style="font-size:11px;color:var(--marker);">Detal: '+(err && err.message ? err.message : String(err))+'</span></div>';
+    console.error('Load error:', err);
+  }
+}
+
+function safeId(key){
+  return String(key).replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+function toggleDetail(key){
+  const row = document.getElementById('detail-'+safeId(key));
+  if(!row){
+    console.error('Detail row not found for key:', key);
+    return;
+  }
+  row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+}
+
+function generateDetailHtml(r){
+  const d = r.details || {};
+  const hasAny = (d.mc && d.mc.length) || (d.match && d.match.length) || (d.tf && d.tf.length);
+  if(!hasAny){
+    return '<div class="empty-note" style="padding:8px 0;">ℹ️ Bu nəticə üçün sual-sual ətraflı məlumat mövcud deyil (köhnə qeyddir və ya saxlama zamanı server xətası olub). Yalnız ümumi bal göstərilir: <b>'+r.pct+'/100</b></div>';
+  }
+  const section = (title, items) => {
+    if(!items || !items.length) return '';
+    const rows = items.map((it,i)=>{
+      const cls = it.isCorrect ? 'detail-item correct' : 'detail-item incorrect';
+      const icon = it.isCorrect ? '✔' : '✘';
+      const selectedLabel = it.selectedText != null ? it.selectedText : '(cavab verilməyib)';
+      const label = it.q || it.word || it.s;
+      return `<div class="${cls}">
+        <span class="detail-icon">${icon}</span>
+        <span class="detail-q">${i+1}. ${label}</span><br>
+        <span class="detail-answer">Cavab: <b>${selectedLabel}</b>${it.isCorrect ? '' : ' — Düzgün: <b>'+it.correctText+'</b>'}</span>
+      </div>`;
+    }).join('');
+    return `<div class="detail-block"><h4>${title}</h4>${rows}</div>`;
+  };
+  return `<div class="detail-wrap">
+    ${section('Multiple Choice', d.mc)}
+    ${section('Matching', d.match)}
+    ${section('True / False', d.tf)}
+  </div>`;
+}
+
+async function deleteResult(key){
+  try{
+    await withRetry(() => fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'delete', id: key })
+    }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+    loadResults();
+  }catch(err){
+    const wrap = document.getElementById('resultsTableWrap');
+    const note = document.createElement('div');
+    note.className = 'empty-note';
+    note.style.color = 'var(--marker)';
+    note.textContent = 'Silinmədi (server müvəqqəti cavab vermir). Bir az sonra yenidən cəhd edin. Detal: ' + (err && err.message ? err.message : String(err));
+    wrap.prepend(note);
+    console.error('Delete error:', err);
+  }
+}
+</script>
+
+</body>
+</html>
