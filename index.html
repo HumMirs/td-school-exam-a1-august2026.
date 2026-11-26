@@ -201,25 +201,32 @@
     padding:10px 22px; border-radius:10px; border:2px solid var(--ink); background:var(--pencil); cursor:pointer;
   }
 
-  .teacher-row{ display:flex; gap:8px; align-items:stretch; margin-bottom:12px; }
-  .teacher-row select{ margin-bottom:0 !important; flex:1; min-width:0; }
-  .gate-card .teacher-add-btn{
-    width:46px; flex:none; margin:0; padding:0; position:relative;
-    background:var(--sky); border-radius:10px; font-size:0;
+  /* ---- Gate qutusu daxilindəki Admin / Nəticələr düymələri ---- */
+  .gate-card .gate-top{ text-align:right; margin:-14px 0 12px; }
+  .gate-card .staff-btn{
+    width:auto; display:inline-block; margin:0; padding:6px 12px; font-size:13px;
+    background:#fff; color:var(--ink); border:2px solid var(--ink); border-radius:10px;
+    box-shadow:var(--shadow);
   }
-  .teacher-add-btn::before, .teacher-add-btn::after{
-    content:''; position:absolute; left:50%; top:50%; background:#fff; border-radius:2px;
-    transform:translate(-50%,-50%);
+  .gate-card .staff-btn:hover{ border-color:var(--sky); }
+  .gate-card .staff-btn.wide{ width:100%; margin-top:10px; padding:10px; font-size:14.5px; border-radius:12px; }
+  #appMain.staff header, #appMain.staff .student-strip, #appMain.staff nav.tabs,
+  #appMain.staff .submit-btn, #appMain.staff #resultBox{ display:none !important; }
+  /* ---- Parol xanası + göz ikonu ---- */
+  .gate-card .pw-wrap{ position:relative; margin-bottom:12px; }
+  .gate-card .pw-wrap input{ margin-bottom:0; padding-right:48px; }
+  .gate-card .pw-wrap .eye-btn{
+    position:absolute; right:6px; top:50%; transform:translateY(-50%);
+    width:38px; height:34px; padding:0; margin:0; border:none; background:transparent;
+    font-size:19px; line-height:1; cursor:pointer; color:var(--ink); box-shadow:none;
   }
-  .teacher-add-btn::before{ width:16px; height:3px; }
-  .teacher-add-btn::after{ width:3px; height:16px; }
-  .teacher-add-btn.open::after{ display:none; }
-  .teacher-add-box{ display:none; margin-bottom:12px; text-align:left; }
-  .teacher-add-box.open{ display:block; }
-  .teacher-add-box input{ margin-bottom:8px; }
-  .teacher-add-actions{ display:flex; gap:8px; }
-  .gate-card .teacher-add-actions button{ margin:0; font-size:14px; padding:10px; }
-  .gate-card .teacher-add-actions .cancel{ background:#fff; color:var(--ink); }
+  /* ---- Admin ---- */
+  .admin-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 12px; border:2px solid var(--paper-line); border-radius:10px; margin-bottom:6px; font-weight:800; background:#fff; }
+  .admin-add{ display:flex; gap:8px; margin:14px 0 8px; }
+  .admin-add input{ flex:1; min-width:0; padding:11px 12px; border-radius:10px; border:2px solid #D7DEE4; font-family:'Nunito',sans-serif; font-weight:700; font-size:14.5px; background:#fff; color:var(--ink); }
+  .admin-add input:focus{ outline:none; border-color:var(--sky); }
+  .admin-status{ text-align:center; font-weight:800; font-size:13.5px; min-height:20px; margin:6px 0; }
+  .staff-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
   #gateOverlay{
     position:fixed; inset:0; background:rgba(44,59,78,0.55); backdrop-filter:blur(3px);
     display:flex; align-items:center; justify-content:center; z-index:200; padding:16px;
@@ -306,35 +313,27 @@
 
 <div id="gateOverlay">
   <div class="gate-card">
+    <div class="gate-top"><button type="button" class="staff-btn" onclick="openAdminLogin()">⚙️ Admin</button></div>
     <h2>Salam! 👋</h2>
     <p>Testə başlamazdan əvvəl məlumatlarını daxil et.</p>
     <input id="gateFirst" placeholder="Ad" autocomplete="off">
     <input id="gateLast" placeholder="Soyad" autocomplete="off">
-    <div class="teacher-row">
-      <select id="gateTeacher">
-        <option value="">-- Müəllimi seç --</option>
-        <option value="Qaçay müəllim">Qaçay müəllim</option>
-        <option value="Aysel müəllimə">Aysel müəllimə</option>
-        <option value="Humay müəllimə">Humay müəllimə</option>
-        <option value="Tavat müəllimə">Tavat müəllimə</option>
-        <option value="Zərifə müəllimə">Zərifə müəllimə</option>
-        <option value="Firuzə müəllimə">Firuzə müəllimə</option>
-        <option value="Leyla müəllimə">Leyla müəllimə</option>
-        <option value="Xəzər müəllim">Xəzər müəllim</option>
-        <option value="Yasəmən müəllimə">Yasəmən müəllimə</option>
-      </select>
-      <button type="button" class="teacher-add-btn" id="teacherAddBtn" onclick="toggleTeacherAdd()" title="Yeni müəllim əlavə et" aria-label="Yeni müəllim əlavə et"></button>
-    </div>
-    <div class="teacher-add-box" id="teacherAddBox">
-      <input id="newTeacherName" maxlength="40" placeholder="Adını yaz (məs: Nigar müəllimə)" autocomplete="off">
-      <div class="teacher-add-actions">
-        <button type="button" onclick="addTeacher()" id="teacherAddSave">Əlavə et ✓</button>
-        <button type="button" class="cancel" onclick="toggleTeacherAdd(false)">Ləğv et</button>
-      </div>
-    </div>
+    <select id="gateTeacher">
+      <option value="">-- Müəllimi seç --</option>
+      <option value="Qaçay müəllim">Qaçay müəllim</option>
+      <option value="Aysel müəllimə">Aysel müəllimə</option>
+      <option value="Humay müəllimə">Humay müəllimə</option>
+      <option value="Tavat müəllimə">Tavat müəllimə</option>
+      <option value="Zərifə müəllimə">Zərifə müəllimə</option>
+      <option value="Firuzə müəllimə">Firuzə müəllimə</option>
+      <option value="Leyla müəllimə">Leyla müəllimə</option>
+      <option value="Xəzər müəllim">Xəzər müəllim</option>
+      <option value="Yasəmən müəllimə">Yasəmən müəllimə</option>
+    </select>
     <input id="gateGroup" placeholder="Qrup / Sinif" autocomplete="off">
     <div class="gate-error" id="gateError"></div>
     <button onclick="startTest()">Başla ➜</button>
+    <button type="button" class="staff-btn wide" onclick="openTeacherLogin()">📊 Nəticələr</button>
   </div>
 </div>
 
@@ -412,31 +411,60 @@
       <h2><span class="badge">📊</span> Ümumi Nəticələr</h2>
       <p class="sub">Bütün şagirdlərin nəticələri müəllim üzrə qruplaşdırılıb.</p>
       <div class="share-note">ℹ️ Bu siyahı yalnız müəllimlər üçündür.</div>
-      <button class="refresh-btn" onclick="loadResults()">🔄 Yenilə</button>
+      <div class="staff-actions"><button class="refresh-btn" onclick="loadResults()">🔄 Yenilə</button><button class="refresh-btn" onclick="location.reload()">↩ Çıx</button></div>
       <div class="results-table-wrap" id="resultsTableWrap">
         <div class="empty-note">Yüklənir...</div>
       </div>
     </div>
   </section>
 
+  <!-- ADMIN (parolla qorunur) -->
+  <section class="page" id="adminPage" data-page="4">
+    <div class="page-card">
+      <h2><span class="badge">⚙️</span> Admin — müəllimlər siyahısı</h2>
+      <p class="sub">Şagirdlərin giriş pəncərəsində seçilən müəllimləri buradan idarə et.</p>
+      <div id="adminList"></div>
+      <div class="admin-add">
+        <input id="newTeacher" maxlength="40" placeholder="Yeni müəllimin adı (məs: Nigar müəllimə)" autocomplete="off">
+        <button class="refresh-btn" id="adminAddBtn" onclick="adminAdd()">➕ Əlavə et</button>
+      </div>
+      <div class="admin-status" id="adminStatus"></div>
+      <div class="staff-actions"><button class="refresh-btn" onclick="location.reload()">↩ Çıx</button></div>
+    </div>
+  </section>
+
 </main>
 
-<div style="text-align:center; padding:10px 16px 30px;">
-  <button onclick="openTeacherLogin()" style="background:none;border:none;color:var(--ink-soft);font-size:12px;font-weight:700;cursor:pointer;text-decoration:underline;opacity:0.6;">🔐 Müəllim girişi</button>
-</div>
+</div><!-- /appMain -->
 
-<div id="teacherGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:250;padding:16px;">
+<div id="teacherGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:400;padding:16px;">
   <div class="gate-card">
-    <h2>🔐 Müəllim girişi</h2>
-    <p>Nəticələr cədvəlini görmək üçün parolu daxil et.</p>
-    <input id="teacherPassword" type="password" placeholder="Parol" autocomplete="off">
+    <h2>📊 Nəticələr</h2>
+    <p>İmtahan nəticələrini görmək üçün parolu daxil et.</p>
+    <div class="pw-wrap">
+      <input id="teacherPassword" type="password" placeholder="Parol" autocomplete="off">
+      <button type="button" class="eye-btn" onclick="togglePw('teacherPassword',this)" aria-label="Parolu göstər" title="Parolu göstər">👁️</button>
+    </div>
     <div class="gate-error" id="teacherError"></div>
     <button onclick="checkTeacherPassword()">Daxil ol ➜</button>
     <button onclick="closeTeacherLogin()" style="background:var(--card);color:var(--ink);margin-top:8px;">Bağla</button>
   </div>
 </div>
 
-</div><!-- /appMain -->
+<div id="adminGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:400;padding:16px;">
+  <div class="gate-card">
+    <h2>⚙️ Admin girişi</h2>
+    <p>Müəllimlər siyahısını dəyişmək üçün admin parolunu daxil et.</p>
+    <div class="pw-wrap">
+      <input id="adminPassword" type="password" placeholder="Admin parolu" autocomplete="off">
+      <button type="button" class="eye-btn" onclick="togglePw('adminPassword',this)" aria-label="Parolu göstər" title="Parolu göstər">👁️</button>
+    </div>
+    <div class="gate-error" id="adminError"></div>
+    <button onclick="checkAdminPassword()">Daxil ol ➜</button>
+    <button onclick="closeAdminLogin()" style="background:var(--card);color:var(--ink);margin-top:8px;">Bağla</button>
+  </div>
+</div>
+
 
 <script>
 /* ---------------- LISTENING SCRIPT (video scenes) ---------------- */
@@ -679,10 +707,34 @@ function startTest(){
 }
 
 /* ---------------- TEACHER ACCESS ---------------- */
-const TEACHER_PASSWORD = 'imtahan2026';
+const TEACHER_PASSWORD = 'imtahan2026';   // nəticələrə baxmaq
+const ADMIN_PASSWORD = 'admin2026';        // admin paneli
+function togglePw(id, btn){
+  const inp = document.getElementById(id);
+  const show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password';
+  btn.textContent = show ? '🙈' : '👁️';
+  const lbl = show ? 'Parolu gizlət' : 'Parolu göstər';
+  btn.setAttribute('aria-label', lbl); btn.title = lbl;
+  inp.focus();
+}
+function resetPw(id){
+  const inp = document.getElementById(id); inp.value = ''; inp.type = 'password';
+  const btn = inp.parentElement.querySelector('.eye-btn');
+  if(btn){ btn.textContent = '👁️'; btn.setAttribute('aria-label','Parolu göstər'); btn.title = 'Parolu göstər'; }
+}
+function enterStaff(pageId){
+  document.getElementById('gateOverlay').style.display = 'none';
+  const app = document.getElementById('appMain');
+  app.style.display = 'block'; app.classList.add('staff');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
 function openTeacherLogin(){
+  closeAdminLogin();
   document.getElementById('teacherGate').style.display = 'flex';
-  document.getElementById('teacherPassword').value = '';
+  resetPw('teacherPassword');
   document.getElementById('teacherError').textContent = '';
   document.getElementById('teacherPassword').focus();
 }
@@ -691,19 +743,34 @@ function checkTeacherPassword(){
   const val = document.getElementById('teacherPassword').value;
   if(val === TEACHER_PASSWORD){
     closeTeacherLogin();
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('teacherPage').classList.add('active');
-    document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
-    window.scrollTo({top:0, behavior:'smooth'});
+    enterStaff('teacherPage');
     loadResults();
   } else {
     document.getElementById('teacherError').textContent = 'Parol yanlışdır.';
   }
 }
-document.addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter' && document.getElementById('teacherGate').style.display === 'flex'){
-    checkTeacherPassword();
+function openAdminLogin(){
+  closeTeacherLogin();
+  document.getElementById('adminGate').style.display = 'flex';
+  resetPw('adminPassword');
+  document.getElementById('adminError').textContent = '';
+  document.getElementById('adminPassword').focus();
+}
+function closeAdminLogin(){ document.getElementById('adminGate').style.display = 'none'; }
+function checkAdminPassword(){
+  const val = document.getElementById('adminPassword').value;
+  if(val === ADMIN_PASSWORD){
+    closeAdminLogin();
+    enterStaff('adminPage');
+    loadAdmin();
+  } else {
+    document.getElementById('adminError').textContent = 'Parol yanlışdır.';
   }
+}
+document.addEventListener('keydown', (e)=>{
+  if(e.key !== 'Enter') return;
+  if(document.getElementById('teacherGate').style.display === 'flex') checkTeacherPassword();
+  else if(document.getElementById('adminGate').style.display === 'flex') checkAdminPassword();
 });
 
 /* ---------------- TAB NAV ---------------- */
@@ -795,98 +862,128 @@ async function withRetry(fn, attempts, delayMs){
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzfsRoBC_W0JYm3d4srGPxdjr_zUYS6ABV5W9UGJ86jMd85l3nATx9iQEdiPAKU664t/exec';
 
 
-/* ---------------- SHARED TEACHER LIST ---------------- */
-const TEACHER_MARKER = '__TEACHER__';
-const TEACHER_CACHE_KEY = 'td_extra_teachers_v1';
+/* ---------------- MÜƏLLİM SİYAHISI (Admin idarə edir) ---------------- */
+const TEACHER_MARKER = '__TEACHER__';          // Admin-in əlavə etdiyi müəllim
+const HIDE_MARKER = '__TEACHER_HIDE__';        // Admin-in siyahıdan sildiyi müəllim
+const TEACHER_CACHE_KEY = 'td_teacher_list_v2';
+const BASE_TEACHERS = ["Qaçay müəllim","Aysel müəllimə","Humay müəllimə","Tavat müəllimə",
+  "Zərifə müəllimə","Firuzə müəllimə","Leyla müəllimə","Xəzər müəllim","Yasəmən müəllimə"];
 
 function escHtml(str){
   return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-function normName(n){ return n.trim().replace(/\s+/g,' ').toLocaleLowerCase('az'); }
+function normName(n){ return String(n).trim().replace(/\s+/g,' ').toLocaleLowerCase('az'); }
 
-function teacherExists(name){
+async function fetchRows(){
+  const res = await withRetry(() => fetch(SHEETS_URL + '?t=' + Date.now()).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+  const data = await res.json();
+  return data.results || [];
+}
+function computeTeachers(rows){
+  const sorted = (rows||[]).slice().sort((a,b) => new Date(a.date) - new Date(b.date));
+  const added = [], hidden = [];
+  sorted.forEach(r => {
+    if(r.first === TEACHER_MARKER && r.teacher) added.push({ name: String(r.teacher).trim(), id: r.id });
+    else if(r.first === HIDE_MARKER && r.teacher) hidden.push({ name: String(r.teacher).trim(), id: r.id });
+  });
+  const hiddenSet = new Set(hidden.map(h => normName(h.name)));
+  const seen = new Set(), list = [];
+  BASE_TEACHERS.concat(added.map(a => a.name)).forEach(n => {
+    const k = normName(n);
+    if(seen.has(k) || hiddenSet.has(k)) return;
+    seen.add(k); list.push(n);
+  });
+  return { list, added, hidden };
+}
+function fillTeacherSelect(list){
   const sel = document.getElementById('gateTeacher');
-  return [...sel.options].some(o => o.value && normName(o.value) === normName(name));
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">-- Müəllimi seç --</option>' +
+    list.map(n => '<option value="'+escHtml(n)+'">'+escHtml(n)+'</option>').join('');
+  if(list.includes(cur)) sel.value = cur;
 }
-function addTeacherOption(name, select){
-  const sel = document.getElementById('gateTeacher');
-  if(teacherExists(name)) return false;
-  const opt = document.createElement('option');
-  opt.value = name; opt.textContent = name;
-  sel.appendChild(opt);
-  if(select) sel.value = name;
-  return true;
-}
-function toggleTeacherAdd(force){
-  const box = document.getElementById('teacherAddBox');
-  const open = (typeof force === 'boolean') ? force : !box.classList.contains('open');
-  box.classList.toggle('open', open);
-  document.getElementById('teacherAddBtn').classList.toggle('open', open);
-  if(open){ const inp = document.getElementById('newTeacherName'); inp.value=''; inp.focus(); }
-}
-async function addTeacher(){
-  const inp = document.getElementById('newTeacherName');
-  const err = document.getElementById('gateError');
-  const btn = document.getElementById('teacherAddSave');
-  const name = inp.value.trim().replace(/\s+/g,' ');
-  if(name.length < 2){ err.textContent = 'Müəllimin adını yaz.'; return; }
-  if(teacherExists(name)){
-    const sel = document.getElementById('gateTeacher');
-    const found = [...sel.options].find(o => o.value && normName(o.value) === normName(name));
-    sel.value = found.value;
-    err.textContent = ''; toggleTeacherAdd(false); return;
-  }
-  btn.disabled = true; btn.textContent = 'Əlavə olunur...';
+function cacheTeachers(list){ try{ localStorage.setItem(TEACHER_CACHE_KEY, JSON.stringify(list)); }catch(e){} }
+async function loadTeachers(){
   try{
-    await withRetry(() => fetch(SHEETS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({
-        first: TEACHER_MARKER, last: '-', teacher: name, group: '-',
-        mc: 0, match: 0, tf: 0, total: 0, max: 0, pct: 0,
-        details: { mc: [], match: [], tf: [] }
-      })
-    }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
-    addTeacherOption(name, true);
-    cacheTeachers();
-    err.textContent = '';
-    toggleTeacherAdd(false);
-  }catch(e){
-    err.textContent = 'Əlavə olunmadı (server cavab vermir). Bir az sonra yenidən cəhd et.';
-    console.error('Add teacher error:', e);
-  }finally{
-    btn.disabled = false; btn.textContent = 'Əlavə et ✓';
-  }
-}
-function cacheTeachers(){
-  try{
-    const base = 9; // first 9 options after placeholder are the built-in list
-    const sel = document.getElementById('gateTeacher');
-    const extra = [...sel.options].slice(1 + base).map(o => o.value);
-    localStorage.setItem(TEACHER_CACHE_KEY, JSON.stringify(extra));
-  }catch(e){}
-}
-async function loadSharedTeachers(){
-  try{
-    const cached = JSON.parse(localStorage.getItem(TEACHER_CACHE_KEY) || '[]');
-    cached.forEach(n => addTeacherOption(n, false));
+    const cached = JSON.parse(localStorage.getItem(TEACHER_CACHE_KEY) || 'null');
+    if(Array.isArray(cached) && cached.length) fillTeacherSelect(cached);
   }catch(e){}
   try{
-    const res = await withRetry(() => fetch(SHEETS_URL).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
-    const data = await res.json();
-    const names = (data.results || [])
-      .filter(r => r.first === TEACHER_MARKER && r.teacher)
-      .sort((a,b) => new Date(a.date) - new Date(b.date))
-      .map(r => String(r.teacher).trim());
-    const sel = document.getElementById('gateTeacher');
-    const current = sel.value;
-    names.forEach(n => addTeacherOption(n, false));
-    sel.value = current;
-    cacheTeachers();
+    const t = computeTeachers(await fetchRows());
+    fillTeacherSelect(t.list); cacheTeachers(t.list);
   }catch(e){ console.error('Teacher list load error:', e); }
 }
-loadSharedTeachers();
-document.getElementById('newTeacherName').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); addTeacher(); } });
+loadTeachers();
+
+/* ---- Admin paneli ---- */
+let adminState = { list: [], added: [], hidden: [] };
+function setAdminStatus(msg, bad){
+  const el = document.getElementById('adminStatus');
+  el.style.color = bad ? 'var(--marker)' : 'var(--chalk-green)';
+  el.textContent = msg || '';
+}
+function postJson(obj){
+  return withRetry(() => fetch(SHEETS_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(obj)
+  }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+}
+function postMarker(marker, name){
+  return postJson({ first: marker, last: '-', teacher: name, group: '-',
+    mc: 0, match: 0, tf: 0, total: 0, max: 0, pct: 0, details: { mc: [], match: [], tf: [] } });
+}
+function renderAdminList(){
+  const box = document.getElementById('adminList');
+  if(!adminState.list.length){ box.innerHTML = '<div class="empty-note">Siyahı boşdur.</div>'; return; }
+  box.innerHTML = adminState.list.map((n,i) =>
+    '<div class="admin-row"><span>🧑‍🏫 '+escHtml(n)+'</span><button class="del-btn" onclick="adminDelete('+i+')">🗑️ Sil</button></div>').join('');
+}
+async function loadAdmin(){
+  document.getElementById('adminList').innerHTML = '<div class="empty-note">Yüklənir...</div>';
+  setAdminStatus('');
+  try{
+    adminState = computeTeachers(await fetchRows());
+    renderAdminList(); fillTeacherSelect(adminState.list); cacheTeachers(adminState.list);
+  }catch(e){
+    document.getElementById('adminList').innerHTML = '<div class="empty-note">Siyahı yüklənmədi (server cavab vermir).</div>';
+    console.error('Admin load error:', e);
+  }
+}
+async function adminAdd(){
+  const inp = document.getElementById('newTeacher');
+  const btn = document.getElementById('adminAddBtn');
+  const name = inp.value.trim().replace(/\s+/g,' ');
+  if(name.length < 2){ setAdminStatus('Müəllimin adını yaz.', true); return; }
+  const k = normName(name);
+  if(adminState.list.some(n => normName(n) === k)){ setAdminStatus('Bu müəllim artıq siyahıdadır.', true); return; }
+  btn.disabled = true; setAdminStatus('Əlavə olunur...');
+  try{
+    const hid = adminState.hidden.filter(h => normName(h.name) === k);
+    if(hid.length){
+      for(const h of hid) await postJson({ action: 'delete', id: h.id });     // əvvəl silinmişdisə, geri qaytar
+    } else {
+      await postMarker(TEACHER_MARKER, name);
+    }
+    inp.value = '';
+    await loadAdmin();
+    setAdminStatus('✅ Əlavə olundu: ' + name);
+  }catch(e){ setAdminStatus('Əlavə olunmadı (server cavab vermir). Bir az sonra yenidən cəhd et.', true); console.error(e); }
+  finally{ btn.disabled = false; }
+}
+async function adminDelete(i){
+  const name = adminState.list[i];
+  if(name === undefined) return;
+  if(!confirm('"'+name+'" siyahıdan silinsin? (Köhnə nəticələr silinmir.)')) return;
+  const k = normName(name);
+  const isBase = BASE_TEACHERS.some(b => normName(b) === k);
+  setAdminStatus('Silinir...');
+  try{
+    for(const a of adminState.added.filter(a => normName(a.name) === k)) await postJson({ action: 'delete', id: a.id });
+    if(isBase) await postMarker(HIDE_MARKER, name);
+    await loadAdmin();
+    setAdminStatus('✅ Silindi: ' + name);
+  }catch(e){ setAdminStatus('Silinmədi (server cavab vermir). Bir az sonra yenidən cəhd et.', true); console.error(e); }
+}
+document.getElementById('newTeacher').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); adminAdd(); } });
 
 async function saveResult(scores){
   const statusEl = document.getElementById('saveStatus');
@@ -935,7 +1032,7 @@ async function loadResults(){
   try{
     const res = await withRetry(() => fetch(SHEETS_URL).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
     const data = await res.json();
-    const records = (data.results || []).filter(r => r.first !== TEACHER_MARKER);
+    const records = (data.results || []).filter(r => r.first !== TEACHER_MARKER && r.first !== HIDE_MARKER);
     records.forEach(r => { r._key = r.id; });
     records.sort((a,b)=> new Date(b.date) - new Date(a.date));
 
