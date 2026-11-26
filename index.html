@@ -3,108 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A1 English Test – Vocabulary, Idioms &amp; Grammar</title>
+<title>A1 Movers – Listening (Greetings)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FAF6EC; --paper-line:#CFE0E8; --ink:#2C3B4E; --ink-soft:#5B6B7C;
-    --pencil:#F2B705; --marker:#E8573F; --chalk-green:#3E8E5C; --sky:#4C8FBF;
-    --card:#FFFFFF; --shadow:0 6px 0 rgba(44,59,78,0.08);
+    --paper:#FAF6EC;
+    --paper-line:#CFE0E8;
+    --ink:#2C3B4E;
+    --ink-soft:#5B6B7C;
+    --pencil:#F2B705;
+    --marker:#E8573F;
+    --chalk-green:#3E8E5C;
+    --sky:#4C8FBF;
+    --card:#FFFFFF;
+    --shadow: 0 6px 0 rgba(44,59,78,0.08);
   }
   *{box-sizing:border-box;}
-  body{ margin:0; background:var(--paper);
-    background-image:repeating-linear-gradient(var(--paper) 0,var(--paper) 34px,var(--paper-line) 35px);
-    font-family:'Nunito',sans-serif; color:var(--ink); padding-bottom:80px; }
-  header{ text-align:center; padding:30px 20px 12px; }
-  header img{ width:90px; height:auto; display:block; margin:0 auto 8px; }
-  header h1{ font-family:'Fredoka',sans-serif; font-size:clamp(22px,5vw,34px); margin:0; }
-  header .underline{ width:120px; height:6px; background:var(--pencil); border-radius:4px; margin:12px auto 10px; transform:rotate(-1deg); }
-  header p{ font-size:14.5px; color:var(--ink-soft); max-width:560px; margin:0 auto; font-weight:600; }
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(var(--paper) 0px, var(--paper) 34px, var(--paper-line) 35px);
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    padding-bottom:80px;
+  }
+  header{ text-align:center; padding:44px 20px 28px; }
+  header h1{
+    font-family:'Fredoka', sans-serif;
+    font-size:clamp(26px,5vw,40px);
+    margin:0;
+    color:var(--ink);
+  }
+  header .underline{
+    width:120px; height:6px; background:var(--pencil);
+    border-radius:4px; margin:14px auto 18px; transform:rotate(-1deg);
+  }
+  header p{ font-size:16px; color:var(--ink-soft); max-width:520px; margin:0 auto; font-weight:600; }
 
-  nav.tabs{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; padding:12px 16px 18px; position:sticky; top:0; background:var(--paper); z-index:50; }
-  nav.tabs button{ font-family:'Fredoka',sans-serif; font-weight:600; font-size:14px; padding:10px 16px; border-radius:10px; border:2px solid var(--ink); background:var(--card); color:var(--ink); cursor:pointer; box-shadow:var(--shadow); }
+  nav.tabs{
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    padding:12px 16px 20px; position:sticky; top:0; background:var(--paper); z-index:50;
+  }
+  nav.tabs button{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:14px;
+    padding:10px 16px; border-radius:10px; border:2px solid var(--ink);
+    background:var(--card); color:var(--ink); cursor:pointer;
+    box-shadow: var(--shadow); transition: transform .12s ease;
+  }
+  nav.tabs button:hover{ transform: translateY(-2px); }
   nav.tabs button.active{ background:var(--sky); color:#fff; border-color:var(--sky); }
-  .part-tag{ display:inline-block; font-family:'Fredoka',sans-serif; font-size:13px; font-weight:600; background:var(--pencil); border-radius:20px; padding:4px 14px; margin-bottom:6px; }
-  .step-tag{ font-family:'Fredoka',sans-serif; font-size:13px; color:var(--ink-soft); margin:0 0 10px 8px; display:inline-block; }
-  .admin-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 12px; border:2px solid var(--paper-line); border-radius:10px; margin-bottom:6px; font-weight:800; font-size:14px; background:#fff; }
-  .add-btn{ font-family:'Fredoka',sans-serif; font-weight:700; font-size:14px; padding:9px 16px; border-radius:10px; border:2px solid var(--ink); background:var(--pencil); cursor:pointer; }
-  .counter{ text-align:center; font-family:'Fredoka',sans-serif; font-size:13px; color:var(--ink-soft); margin-bottom:10px; }
 
-  main{ max-width:860px; margin:0 auto; padding:0 16px; }
-  .page{ display:none; } .page.active{ display:block; animation:fadeIn .3s ease; }
-  @keyframes fadeIn{ from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
-  .card{ background:var(--card); border:2px solid var(--ink); border-radius:16px; box-shadow:var(--shadow); padding:24px 22px; margin-bottom:22px; }
-  .card h2{ font-family:'Fredoka',sans-serif; font-size:19px; margin:0 0 4px; }
-  .card .sub{ color:var(--ink-soft); font-size:13.5px; font-weight:700; margin:0 0 14px; }
-  .big-title{ font-family:'Fredoka',sans-serif; font-size:22px; margin:0 0 16px; }
+  main{ max-width:900px; margin:0 auto; padding:0 16px; }
+  .page{ display:none; }
+  .page.active{ display:block; animation: fadeIn .3s ease; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
 
-  .q{ padding:12px 0; border-top:1px dashed #DCE3E8; }
+  .page-card{
+    background:var(--card); border:2px solid var(--ink); border-radius:16px;
+    box-shadow: var(--shadow); padding:26px 22px; margin-bottom:24px;
+  }
+  .page-card h2{
+    font-family:'Fredoka', sans-serif; font-size:22px; margin:0 0 6px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:50%; background:var(--pencil);
+    color:var(--ink); font-family:'Fredoka',sans-serif; font-size:15px; flex:0 0 auto;
+  }
+  .page-card .sub{ color:var(--ink-soft); font-size:14px; margin:0 0 20px; font-weight:600; }
+
+  /* Listening player */
+  .listen-box{
+    background:var(--paper); border:2px dashed var(--pencil); border-radius:14px;
+    padding:20px; text-align:center; margin-bottom:24px;
+  }
+  .listen-box .icon{ font-size:36px; }
+  .listen-box p{ font-weight:700; color:var(--ink-soft); font-size:13.5px; margin:8px 0 16px; }
+  .listen-buttons{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .listen-buttons button{
+    font-family:'Fredoka', sans-serif; font-weight:700; font-size:15px;
+    padding:12px 24px; border-radius:12px; border:2px solid var(--ink); cursor:pointer;
+  }
+  #playBtn{ background:var(--chalk-green); color:#fff; }
+  #stopBtn{ background:var(--marker); color:#fff; }
+  .no-speech-note{ display:none; color:var(--marker); font-weight:700; font-size:13px; margin-top:10px; }
+
+  .video-screen{
+    background:linear-gradient(160deg,#2C3B4E,#1a2530);
+    border-radius:14px;
+    padding:30px 20px;
+    margin-bottom:16px;
+    min-height:180px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .video-screen .avatar{
+    font-size:64px;
+    transition: transform .25s ease;
+    animation: bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+  .video-screen .speaker-name{
+    font-family:'Fredoka', sans-serif;
+    color:#fff;
+    font-size:15px;
+    margin-top:10px;
+    background:rgba(255,255,255,0.12);
+    padding:4px 14px;
+    border-radius:20px;
+  }
+  .video-screen .idle-msg{
+    color:rgba(255,255,255,0.6);
+    font-weight:700;
+    font-size:14px;
+  }
+  .video-screen .rec-dot{
+    position:absolute;
+    top:12px; left:14px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--marker);
+    display:none;
+  }
+  .video-screen.playing .rec-dot{ display:block; animation: pulse 1s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+  .q{ padding:14px 0; border-top:1px dashed #DCE3E8; }
   .q:first-of-type{ border-top:none; }
-  .qtext{ font-weight:800; font-size:15.5px; margin-bottom:9px; }
-  .qnum{ display:inline-block; min-width:30px; color:var(--sky); }
+  .q .qtext{ font-weight:800; margin-bottom:10px; font-size:15.5px; }
   .options{ display:flex; flex-wrap:wrap; gap:8px; }
-  .opt{ border:2px solid #D7DEE4; background:#FBFCFD; padding:8px 16px; border-radius:10px; cursor:pointer; font-weight:800; font-size:14.5px; user-select:none; }
+  .opt{
+    border:2px solid #D7DEE4; background:#FBFCFD; padding:8px 14px; border-radius:10px;
+    cursor:pointer; font-weight:700; font-size:14px; transition: all .12s ease; user-select:none;
+  }
   .opt:hover{ border-color:var(--sky); }
   .opt.selected{ background:var(--sky); border-color:var(--sky); color:#fff; }
-  input.text-input{ width:100%; max-width:380px; padding:9px 13px; border-radius:10px; border:2px solid #D7DEE4; font-family:'Nunito',sans-serif; font-weight:700; font-size:14.5px; }
-  input.text-input:focus{ outline:none; border-color:var(--sky); }
-  .word-chip{ display:inline-block; background:var(--paper); border:2px solid var(--paper-line); border-radius:8px; padding:6px 12px; margin:3px; font-weight:800; font-size:14px; cursor:pointer; user-select:none; }
-  .word-chip:hover{ border-color:var(--sky); }
-  .word-chip.used{ opacity:.35; pointer-events:none; }
-  .answer-line{ min-height:44px; background:#fff; border:2px dashed var(--paper-line); border-radius:10px; padding:8px 10px; margin-top:8px; display:flex; flex-wrap:wrap; align-items:center; gap:4px; }
-  .answer-placeholder{ font-size:13px; color:var(--ink-soft); font-weight:600; font-style:italic; }
-  .answer-chip{ display:inline-block; background:var(--sky); color:#fff; border-radius:8px; padding:6px 12px; margin:2px; font-weight:800; font-size:14px; cursor:pointer; }
-  .answer-chip:hover{ background:var(--marker); }
-  .clear-btn{ margin-top:6px; font-family:'Nunito',sans-serif; font-weight:700; font-size:12px; padding:5px 12px; border-radius:8px; border:2px solid var(--paper-line); background:var(--card); color:var(--ink-soft); cursor:pointer; }
+  .opt.correct{ background:var(--chalk-green) !important; border-color:var(--chalk-green) !important; color:#fff !important; }
+  .opt.incorrect{ background:var(--marker) !important; border-color:var(--marker) !important; color:#fff !important; }
 
-  .nav-buttons{ display:flex; justify-content:space-between; margin-top:4px; }
-  .nav-buttons button{ font-family:'Fredoka',sans-serif; font-weight:600; font-size:15px; padding:10px 22px; border-radius:10px; border:2px solid var(--ink); background:var(--card); cursor:pointer; box-shadow:var(--shadow); }
-  .submit-btn{ display:block; margin:18px auto 10px; font-family:'Fredoka',sans-serif; font-weight:700; font-size:19px; padding:15px 44px; border-radius:14px; border:2px solid var(--ink); background:var(--marker); color:#fff; cursor:pointer; box-shadow:0 6px 0 rgba(44,59,78,0.25); }
-  .submit-btn:disabled{ opacity:.6; cursor:default; }
-  #resultBox{ display:none; background:var(--card); border:3px solid var(--ink); border-radius:18px; padding:30px 24px; text-align:center; margin:0 auto 40px; box-shadow:var(--shadow); }
-  #resultBox h2{ font-family:'Fredoka',sans-serif; font-size:26px; margin:0 0 6px; }
-  .retry-btn{ margin-top:16px; font-family:'Fredoka',sans-serif; font-weight:600; padding:10px 22px; border-radius:10px; border:2px solid var(--ink); background:var(--pencil); cursor:pointer; }
+  select.match-select{
+    font-family:'Nunito', sans-serif; font-size:14.5px; font-weight:700;
+    padding:8px 10px; border-radius:8px; border:2px solid #D7DEE4;
+    background:#FBFCFD; color:var(--ink); width:100%; max-width:280px;
+  }
+  select.match-select:focus{ outline:none; border-color:var(--sky); }
+  .match-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .match-word{ font-weight:800; min-width:200px; }
+  .match-row.correct select{ border-color:var(--chalk-green); background:#EAF7EE; }
+  .match-row.incorrect select{ border-color:var(--marker); background:#FDECEA; }
+  .correct-hint{ font-size:12.5px; color:var(--chalk-green); font-weight:800; margin-left:4px; }
+  .incorrect-hint{ font-size:12.5px; color:var(--marker); font-weight:800; margin-left:4px; }
 
-  #gateOverlay{ position:fixed; inset:0; background:rgba(44,59,78,0.55); backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; z-index:200; padding:16px; overflow:auto; }
-  .gate-card{ background:var(--card); border:3px solid var(--ink); border-radius:18px; padding:26px 26px; max-width:380px; width:100%; text-align:center; box-shadow:0 10px 0 rgba(44,59,78,0.2); }
-  .gate-card img{ width:90px; height:auto; display:block; margin:0 auto 6px; }
-  .gate-card h2{ font-family:'Fredoka',sans-serif; margin:0 0 4px; font-size:23px; }
-  .gate-card p{ font-size:14px; color:var(--ink-soft); font-weight:600; margin:0 0 14px; }
-  .gate-card input,.gate-card select{ width:100%; padding:11px 12px; margin-bottom:11px; border-radius:10px; border:2px solid #D7DEE4; font-family:'Nunito',sans-serif; font-weight:700; font-size:14.5px; background:#fff; color:var(--ink); }
-  .gate-card input:focus,.gate-card select:focus{ outline:none; border-color:var(--sky); }
-  .gate-card button.primary-btn{ width:100%; font-family:'Fredoka',sans-serif; font-weight:700; font-size:16px; padding:12px; border-radius:12px; border:2px solid var(--ink); background:var(--sky); color:#fff; cursor:pointer; margin-top:4px; }
+  .tf-options{ display:flex; gap:10px; }
+  .tf-opt{
+    border:2px solid #D7DEE4; background:#FBFCFD; padding:9px 22px; border-radius:10px;
+    cursor:pointer; font-weight:800; font-size:14px; user-select:none;
+  }
+  .tf-opt:hover{ border-color:var(--sky); }
+  .tf-opt.selected{ background:var(--sky); border-color:var(--sky); color:#fff; }
+  .tf-opt.correct{ background:var(--chalk-green) !important; border-color:var(--chalk-green) !important; color:#fff !important; }
+  .tf-opt.incorrect{ background:var(--marker) !important; border-color:var(--marker) !important; color:#fff !important; }
+
+  .nav-buttons{ display:flex; justify-content:space-between; margin-top:6px; }
+  .nav-buttons button{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:15px;
+    padding:10px 20px; border-radius:10px; border:2px solid var(--ink);
+    background:var(--card); cursor:pointer; box-shadow: var(--shadow);
+  }
+  .submit-btn{
+    display:block; margin:10px auto 30px; font-family:'Fredoka', sans-serif;
+    font-weight:700; font-size:19px; padding:16px 44px; border-radius:14px;
+    border:2px solid var(--ink); background:var(--marker); color:#fff; cursor:pointer;
+    box-shadow: 0 6px 0 rgba(44,59,78,0.25);
+  }
+  .submit-btn:active{ transform: translateY(3px); box-shadow:none; }
+
+  #resultBox{
+    display:none; background:var(--card); border:3px solid var(--ink); border-radius:18px;
+    padding:30px 24px; text-align:center; max-width:900px; margin:0 auto 40px; box-shadow: var(--shadow);
+  }
+  #resultBox h2{ font-family:'Fredoka', sans-serif; font-size:26px; margin:0 0 6px; }
+  #resultBox .stars{ font-size:34px; margin:10px 0; }
+  .score-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin:20px 0; }
+  .score-grid .cell{ background:var(--paper); border:2px solid var(--paper-line); border-radius:12px; padding:14px 8px; }
+  .score-grid .cell .num{ font-family:'Fredoka', sans-serif; font-size:22px; color:var(--sky); }
+  .score-grid .cell .lbl{ font-size:12.5px; font-weight:700; color:var(--ink-soft); }
+  .total{ font-family:'Fredoka', sans-serif; font-size:20px; margin-top:6px; }
+  .retry-btn{
+    margin-top:18px; font-family:'Fredoka', sans-serif; font-weight:600;
+    padding:10px 22px; border-radius:10px; border:2px solid var(--ink); background:var(--pencil); cursor:pointer;
+  }
+
+  /* ---- Gate qutusu daxilindəki Admin / Nəticələr düymələri ---- */
+  .gate-card .gate-top{ text-align:right; margin:-14px 0 12px; }
+  .gate-card .staff-btn{
+    width:auto; display:inline-block; margin:0; padding:6px 12px; font-size:13px;
+    background:#fff; color:var(--ink); border:2px solid var(--ink); border-radius:10px;
+    box-shadow:var(--shadow);
+  }
+  .gate-card .staff-btn:hover{ border-color:var(--sky); }
+  .gate-card .staff-btn.wide{ width:100%; margin-top:10px; padding:10px; font-size:14.5px; border-radius:12px; }
+  .gate-card .teacher-login-link{
+    display:block; width:auto; margin:16px auto 0; padding:0; background:none; border:none; box-shadow:none;
+    color:var(--ink-soft); font-family:'Nunito', sans-serif; font-size:12.5px; font-weight:700;
+    cursor:pointer; text-decoration:underline;
+  }
+  #appMain.staff header, #appMain.staff .student-strip, #appMain.staff nav.tabs,
+  #appMain.staff .submit-btn, #appMain.staff #resultBox{ display:none !important; }
+  /* ---- Parol xanası + göz ikonu ---- */
+  .gate-card .pw-wrap{ position:relative; margin-bottom:12px; }
+  .gate-card .pw-wrap input{ margin-bottom:0; padding-right:48px; }
+  .gate-card .pw-wrap .eye-btn{
+    position:absolute; right:6px; top:50%; transform:translateY(-50%);
+    width:38px; height:34px; padding:0; margin:0; border:none; background:transparent;
+    font-size:19px; line-height:1; cursor:pointer; color:var(--ink); box-shadow:none;
+  }
+  /* ---- Admin ---- */
+  .admin-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 12px; border:2px solid var(--paper-line); border-radius:10px; margin-bottom:6px; font-weight:800; background:#fff; }
+  .admin-add{ display:flex; gap:8px; margin:14px 0 8px; }
+  .admin-add input{ flex:1; min-width:0; padding:11px 12px; border-radius:10px; border:2px solid #D7DEE4; font-family:'Nunito',sans-serif; font-weight:700; font-size:14.5px; background:#fff; color:var(--ink); }
+  .admin-add input:focus{ outline:none; border-color:var(--sky); }
+  .admin-status{ text-align:center; font-weight:800; font-size:13.5px; min-height:20px; margin:6px 0; }
+  .staff-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+  #gateOverlay{
+    position:fixed; inset:0; background:rgba(44,59,78,0.55); backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center; z-index:200; padding:16px;
+  }
+  .gate-card{
+    background:var(--card); border:3px solid var(--ink); border-radius:18px;
+    padding:32px 26px; max-width:380px; width:100%; text-align:center;
+    box-shadow:0 10px 0 rgba(44,59,78,0.2);
+  }
+  .gate-card h2{ font-family:'Fredoka', sans-serif; margin:0 0 4px; font-size:24px; }
+  .gate-card p{ font-size:14px; color:var(--ink-soft); font-weight:600; margin:0 0 18px; }
+  .gate-card input, .gate-card select{
+    width:100%; padding:11px 12px; margin-bottom:12px; border-radius:10px;
+    border:2px solid #D7DEE4; font-family:'Nunito', sans-serif; font-weight:700;
+    font-size:14.5px; background:#fff; color:var(--ink);
+  }
+  .gate-card input:focus, .gate-card select:focus{ outline:none; border-color:var(--sky); }
+  .gate-card button{
+    width:100%; font-family:'Fredoka', sans-serif; font-weight:700; font-size:16px;
+    padding:12px; border-radius:12px; border:2px solid var(--ink);
+    background:var(--sky); color:#fff; cursor:pointer; margin-top:6px;
+  }
   .gate-error{ color:var(--marker); font-size:13px; font-weight:800; min-height:18px; margin-bottom:4px; }
-  .teacher-login-link{ display:block; margin:14px auto 0; background:none; border:none; color:var(--ink-soft); font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:underline; }
   #appMain{ display:none; }
-  .student-strip{ max-width:860px; margin:0 auto 6px; padding:0 16px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
-  .student-strip span{ background:var(--card); border:2px solid var(--paper-line); border-radius:20px; padding:5px 14px; font-size:12.5px; font-weight:800; color:var(--ink-soft); }
+  .student-strip{
+    max-width:900px; margin:0 auto 6px; padding:0 16px; display:flex;
+    gap:8px; flex-wrap:wrap; justify-content:center;
+  }
+  .student-strip span{
+    background:var(--card); border:2px solid var(--paper-line); border-radius:20px;
+    padding:5px 14px; font-size:12.5px; font-weight:800; color:var(--ink-soft);
+  }
 
-  .share-note{ font-size:12.5px; color:var(--ink-soft); font-weight:700; background:#FFF6E0; border:1px dashed var(--pencil); border-radius:10px; padding:8px 12px; margin-bottom:14px; }
+  .share-note{
+    font-size:12.5px; color:var(--ink-soft); font-weight:700; background:#FFF6E0;
+    border:1px dashed var(--pencil); border-radius:10px; padding:8px 12px; margin-bottom:16px;
+  }
   .results-table-wrap{ overflow-x:auto; }
-  table.results-table{ width:100%; border-collapse:collapse; font-size:13px; }
-  table.results-table th,table.results-table td{ border-bottom:2px solid var(--paper-line); padding:9px 8px; text-align:left; white-space:nowrap; }
-  table.results-table th{ font-family:'Fredoka',sans-serif; color:var(--ink-soft); font-size:12px; }
+  table.results-table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.results-table th, table.results-table td{
+    border-bottom:2px solid var(--paper-line); padding:9px 8px; text-align:left; white-space:nowrap;
+  }
+  table.results-table th{ font-family:'Fredoka', sans-serif; color:var(--ink-soft); font-size:12.5px; }
+  table.results-table tr:hover td{ background:#F7FBFD; }
   .pct-pill{ display:inline-block; padding:3px 10px; border-radius:20px; font-weight:800; color:#fff; font-size:12px; }
-  .del-btn{ font-family:'Nunito',sans-serif; font-weight:800; font-size:12px; padding:6px 10px; border-radius:8px; border:2px solid var(--marker); background:#FDECEA; color:var(--marker); cursor:pointer; }
+  .del-btn{
+    font-family:'Nunito', sans-serif; font-weight:800; font-size:12px; padding:6px 10px;
+    border-radius:8px; border:2px solid var(--marker); background:#FDECEA; color:var(--marker); cursor:pointer;
+  }
   .del-btn:hover{ background:var(--marker); color:#fff; }
-  .student-name-btn{ background:none; border:none; padding:0; cursor:pointer; font-family:'Nunito',sans-serif; font-weight:800; font-size:13.5px; color:var(--sky); text-decoration:underline; }
-  .detail-row td{ background:#F7FBFD; padding:14px; }
-  .detail-sec{ font-family:'Fredoka',sans-serif; font-size:13px; color:var(--ink-soft); margin:10px 0 6px; white-space:normal; }
-  .detail-item{ font-size:12.5px; font-weight:700; padding:6px 10px; border-radius:8px; margin-bottom:4px; text-align:left; white-space:normal; }
+  .student-name-btn{
+    background:none; border:none; padding:0; cursor:pointer;
+    font-family:'Nunito', sans-serif; font-weight:800; font-size:13.5px;
+    color:var(--sky); text-decoration:underline;
+  }
+  .student-name-btn:hover{ color:var(--ink); }
+  .detail-row td{ background:#F7FBFD; padding:16px; }
+  .detail-wrap{ display:flex; flex-direction:column; gap:14px; white-space:normal; }
+  .detail-block h4{
+    font-family:'Fredoka', sans-serif; font-size:14px; margin:0 0 8px; color:var(--ink-soft);
+  }
+  .detail-item{
+    font-size:12.5px; font-weight:700; padding:6px 10px; border-radius:8px; margin-bottom:6px;
+  }
   .detail-item.correct{ background:#EAF7EE; color:var(--chalk-green); }
   .detail-item.incorrect{ background:#FDECEA; color:var(--marker); }
-  .teacher-heading{ font-family:'Fredoka',sans-serif; font-size:17px; background:var(--paper); border:2px solid var(--paper-line); border-radius:10px; padding:8px 14px; margin:0 0 8px; }
-  .teacher-count{ font-family:'Nunito',sans-serif; font-size:12.5px; font-weight:700; color:var(--ink-soft); }
-  .refresh-btn{ font-family:'Fredoka',sans-serif; font-weight:600; font-size:13.5px; padding:8px 16px; border-radius:10px; border:2px solid var(--ink); background:var(--card); cursor:pointer; margin-bottom:12px; }
-  .empty-note{ color:var(--ink-soft); font-weight:700; font-size:14px; padding:18px 0; text-align:center; }
-
-  /* ---- Admin düyməsi (giriş qutusunun yuxarı sağ küncü) + parol göz ikonu ---- */
-  .gate-card .gate-top{ text-align:right; margin:-8px 0 2px; }
-  .gate-card .staff-btn{ width:auto; display:inline-block; margin:0; padding:6px 12px; font-size:13px; font-family:'Fredoka',sans-serif; font-weight:600; cursor:pointer; background:#fff; color:var(--ink); border:2px solid var(--ink); border-radius:10px; box-shadow:var(--shadow); }
-  .gate-card .staff-btn:hover{ border-color:var(--sky); }
-  .gate-card .pw-wrap{ position:relative; margin-bottom:11px; }
-  .gate-card .pw-wrap input{ margin-bottom:0; padding-right:48px; }
-  .gate-card .pw-wrap .eye-btn{ position:absolute; right:6px; top:50%; transform:translateY(-50%); width:38px; height:34px; padding:0; margin:0; border:none; background:transparent; font-size:19px; line-height:1; cursor:pointer; color:var(--ink); box-shadow:none; }
+  .detail-icon{ margin-right:4px; }
+  .detail-q{ color:var(--ink); }
+  .detail-answer{ font-weight:700; }
+  .teacher-group{ margin-bottom:26px; }
+  .teacher-heading{
+    font-family:'Fredoka', sans-serif; font-size:17px; color:var(--ink); background:var(--paper);
+    border:2px solid var(--paper-line); border-radius:10px; padding:8px 14px; margin:0 0 8px;
+  }
+  .teacher-count{ font-family:'Nunito', sans-serif; font-size:12.5px; font-weight:700; color:var(--ink-soft); }
+  .refresh-btn{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:13.5px; padding:8px 16px;
+    border-radius:10px; border:2px solid var(--ink); background:var(--card); cursor:pointer; margin-bottom:14px;
+  }
+  .empty-note{ color:var(--ink-soft); font-weight:700; font-size:14px; padding:20px 0; text-align:center; }
+  .td-logo{ width:90px; height:auto; display:block; margin:0 auto 8px; }
+  .submit-btn.submit-hidden{ display:none; }
 </style>
 </head>
 <body>
@@ -117,71 +326,127 @@
     <p>Testə başlamazdan əvvəl məlumatlarını daxil et.</p>
     <input id="gateFirst" placeholder="Ad" autocomplete="off">
     <input id="gateLast" placeholder="Soyad" autocomplete="off">
-    <select id="gateTeacher"><option value="">-- Müəllimi seç --</option></select>
+    <select id="gateTeacher">
+      <option value="">-- Müəllimi seç --</option>
+      <option value="Qaçay müəllim">Qaçay müəllim</option>
+      <option value="Aysel müəllimə">Aysel müəllimə</option>
+      <option value="Humay müəllimə">Humay müəllimə</option>
+      <option value="Tavat müəllimə">Tavat müəllimə</option>
+      <option value="Zərifə müəllimə">Zərifə müəllimə</option>
+      <option value="Firuzə müəllimə">Firuzə müəllimə</option>
+      <option value="Leyla müəllimə">Leyla müəllimə</option>
+      <option value="Xəzər müəllim">Xəzər müəllim</option>
+      <option value="Yasəmən müəllimə">Yasəmən müəllimə</option>
+    </select>
     <input id="gateGroup" placeholder="Qrup / Sinif" autocomplete="off">
     <div class="gate-error" id="gateError"></div>
-    <button class="primary-btn" onclick="startTest()">Başla ➜</button>
-    <button class="teacher-login-link" onclick="openTeacherLogin()">🔐 Müəllim girişi</button>
+    <button onclick="startTest()">Başla ➜</button>
+    <button type="button" class="teacher-login-link" onclick="openTeacherLogin()">🔐 Müəllim girişi</button>
   </div>
 </div>
 
 <div id="appMain">
-  <header>
-    <img class="td-logo" src="" alt="TD School logo">
-    <h1>A1 English Test – Vocabulary, Idioms &amp; Grammar</h1>
-    <div class="underline"></div>
-    <p>A1 səviyyəsi qarışıq İngilis dili testi (lüğət, idiomlar, qrammatika) — 45 sual. Hər sualı diqqətlə oxu və cavab ver.</p>
-  </header>
-  <div class="student-strip" id="studentStrip"></div>
 
-  <nav class="tabs" id="tabs"></nav>
+<header>
+  <img class="td-logo" src="" alt="TD School logo">
+  <h1>🎧 A1 Movers – Listening (Greetings)</h1>
+  <div class="underline"></div>
+  <p>Dinlə, düşün və düzgün cavabı seç!</p>
+</header>
 
-  <main>
-    <div class="counter" id="counter"></div>
-    <div id="pages"></div>
+<div class="student-strip" id="studentStrip"></div>
 
-    <div id="resultBox"></div>
+<nav class="tabs">
+  <button data-page="0" class="active">1️⃣ Seçim</button>
+  <button data-page="1">2️⃣ Uyğunlaşdırma</button>
+  <button data-page="2">3️⃣ Doğru/Yanlış</button>
+</nav>
 
-    <section id="teacherPage" style="display:none;">
-      <div class="card">
-        <h2>📊 Ümumi Nəticələr</h2>
-        <div class="share-note">ℹ️ Bu siyahı yalnız müəllimlər üçündür. Şagirdin adına basın — sual-sual nəticəni görəcəksiniz.</div>
-        <button class="refresh-btn" onclick="loadResults()">🔄 Yenilə</button>
-        <div class="results-table-wrap" id="resultsTableWrap"><div class="empty-note">Yüklənir...</div></div>
-      </div>
-    </section>
+<main>
 
-    <section id="adminPage" style="display:none;">
-      <div class="card">
-        <h2>⚙️ Admin — müəllimlər siyahısı</h2>
-        <div class="share-note">Yeni müəllimin adını yazıb <b>➕ Əlavə et</b> basın. Silmək üçün 🗑️ basın. Sonda mütləq <b>💾 Yadda saxla</b> basın — siyahı bütün şagirdlərdə yenilənəcək.</div>
-        <div id="adminList"></div>
-        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
-          <input id="newTeacher" class="text-input" placeholder="Məs: Nərmin müəllimə" style="flex:1;min-width:200px;">
-          <button class="add-btn" onclick="addTeacher()">➕ Əlavə et</button>
+  <!-- PAGE 1: LISTENING + MULTIPLE CHOICE -->
+  <section class="page active" data-page="0">
+    <div class="page-card">
+      <h2><span class="badge">1</span> Listening — Multiple Choice</h2>
+      <p class="sub">Əvvəlcə dinlə, sonra sualları cavablandır.</p>
+
+      <div class="listen-box">
+        <div class="video-screen" id="videoScreen">
+          <div class="rec-dot"></div>
+          <div class="idle-msg" id="idleMsg">▶️ "Videoya bax" düyməsinə bas</div>
+          <div class="avatar" id="screenAvatar" style="display:none;">🙂</div>
+          <div class="speaker-name" id="screenSpeaker" style="display:none;"></div>
         </div>
-        <button class="submit-btn" onclick="saveTeachers()">💾 Yadda saxla</button>
-        <div id="adminStatus" style="text-align:center;font-weight:800;font-size:13.5px;"></div>
+        <p>Videoya bax və diqqətlə dinlə. İstəsən bir neçə dəfə təkrar izləyə bilərsən.</p>
+        <div class="listen-buttons">
+          <button id="playBtn" onclick="playListening()">▶️ Videoya bax</button>
+          <button id="stopBtn" onclick="stopListening()">⏹️ Dayandır</button>
+        </div>
+        <div class="no-speech-note" id="noSpeechNote">⚠️ Brauzeriniz səsli oxumanı dəstəkləmir.</div>
       </div>
-    </section>
-  </main>
-</div>
 
-<div id="adminGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:250;padding:16px;">
-  <div class="gate-card">
-    <h2>⚙️ Admin girişi</h2>
-    <p>Müəllimlər siyahısını dəyişmək üçün admin parolunu daxil et.</p>
-    <div class="pw-wrap">
-      <input id="adminPassword" type="password" placeholder="Admin parolu" autocomplete="off">
-      <button type="button" class="eye-btn" onclick="togglePw('adminPassword',this)" aria-label="Parolu göstər" title="Parolu göstər">👁️</button>
+      <div id="mcContainer"></div>
     </div>
-    <div class="gate-error" id="adminError"></div>
-    <button class="primary-btn" onclick="checkAdminPassword()">Daxil ol ➜</button>
-    <button class="teacher-login-link" onclick="closeAdminLogin()">Bağla</button>
-  </div>
-</div>
+    <div class="nav-buttons"><span></span><button onclick="goTo(1)">Növbəti ➜</button></div>
+  </section>
 
-<div id="teacherGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:250;padding:16px;">
+  <!-- PAGE 2: MATCHING -->
+  <section class="page" data-page="1">
+    <div class="page-card">
+      <h2><span class="badge">2</span> Matching</h2>
+      <p class="sub">Salamlaşma cümləsini düzgün cavabla uyğunlaşdır.</p>
+      <div id="matchContainer"></div>
+    </div>
+    <div class="nav-buttons"><button onclick="goTo(0)">⟵ Geri</button><button onclick="goTo(2)">Növbəti ➜</button></div>
+  </section>
+
+  <!-- PAGE 3: TRUE / FALSE -->
+  <section class="page" data-page="2">
+    <div class="page-card">
+      <h2><span class="badge">3</span> True / False</h2>
+      <p class="sub">Dinlədiyin məlumata əsasən cümlənin doğru (True) və ya yanlış (False) olduğunu seç.</p>
+      <div id="tfContainer"></div>
+    </div>
+    <div class="nav-buttons"><button onclick="goTo(1)">⟵ Geri</button><span></span></div>
+  </section>
+
+  <button class="submit-btn submit-hidden" id="submitBtn" onclick="gradeAll()">✅ Nəticəni göndər</button>
+
+  <div id="resultBox"></div>
+
+  <!-- TEACHER RESULTS (password protected) -->
+  <section class="page" id="teacherPage" data-page="3">
+    <div class="page-card">
+      <h2><span class="badge">📊</span> Ümumi Nəticələr</h2>
+      <p class="sub">Bütün şagirdlərin nəticələri müəllim üzrə qruplaşdırılıb.</p>
+      <div class="share-note">ℹ️ Bu siyahı yalnız müəllimlər üçündür.</div>
+      <div class="staff-actions"><button class="refresh-btn" onclick="loadResults()">🔄 Yenilə</button><button class="refresh-btn" onclick="location.reload()">↩ Çıx</button></div>
+      <div class="results-table-wrap" id="resultsTableWrap">
+        <div class="empty-note">Yüklənir...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN (parolla qorunur) -->
+  <section class="page" id="adminPage" data-page="4">
+    <div class="page-card">
+      <h2><span class="badge">⚙️</span> Admin — müəllimlər siyahısı</h2>
+      <p class="sub">Şagirdlərin giriş pəncərəsində seçilən müəllimləri buradan idarə et.</p>
+      <div id="adminList"></div>
+      <div class="admin-add">
+        <input id="newTeacher" maxlength="40" placeholder="Yeni müəllimin adı (məs: Nigar müəllimə)" autocomplete="off">
+        <button class="refresh-btn" id="adminAddBtn" onclick="adminAdd()">➕ Əlavə et</button>
+      </div>
+      <div class="admin-status" id="adminStatus"></div>
+      <div class="staff-actions"><button class="refresh-btn" onclick="location.reload()">↩ Çıx</button></div>
+    </div>
+  </section>
+
+</main>
+
+</div><!-- /appMain -->
+
+<div id="teacherGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:400;padding:16px;">
   <div class="gate-card">
     <h2>🔐 Müəllim girişi</h2>
     <p>Nəticələr cədvəlini görmək üçün parolu daxil et.</p>
@@ -190,458 +455,724 @@
       <button type="button" class="eye-btn" onclick="togglePw('teacherPassword',this)" aria-label="Parolu göstər" title="Parolu göstər">👁️</button>
     </div>
     <div class="gate-error" id="teacherError"></div>
-    <button class="primary-btn" onclick="checkTeacherPassword()">Daxil ol ➜</button>
-    <button class="teacher-login-link" onclick="closeTeacherLogin()">Bağla</button>
+    <button onclick="checkTeacherPassword()">Daxil ol ➜</button>
+    <button onclick="closeTeacherLogin()" style="background:var(--card);color:var(--ink);margin-top:8px;">Bağla</button>
   </div>
 </div>
 
+<div id="adminGate" style="display:none;position:fixed;inset:0;background:rgba(44,59,78,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;z-index:400;padding:16px;">
+  <div class="gate-card">
+    <h2>⚙️ Admin girişi</h2>
+    <p>Müəllimlər siyahısını dəyişmək üçün admin parolunu daxil et.</p>
+    <div class="pw-wrap">
+      <input id="adminPassword" type="password" placeholder="Admin parolu" autocomplete="off">
+      <button type="button" class="eye-btn" onclick="togglePw('adminPassword',this)" aria-label="Parolu göstər" title="Parolu göstər">👁️</button>
+    </div>
+    <div class="gate-error" id="adminError"></div>
+    <button onclick="checkAdminPassword()">Daxil ol ➜</button>
+    <button onclick="closeAdminLogin()" style="background:var(--card);color:var(--ink);margin-top:8px;">Bağla</button>
+  </div>
+</div>
+
+
 <script>
-/* =====================================================================
-   MÜƏLLİMLƏR SİYAHISI — yeni müəllim əlavə etmək üçün sadəcə yeni sətir yazın:
-   hər ad dırnaq içində, sonunda vergül. Silmək üçün sətri silin.
-   ===================================================================== */
-const TEACHERS = [   // ehtiyat siyahı — əsl siyahı Admin paneldən idarə olunur
-  "Qaçay müəllim",
-  "Aysel müəllimə",
-  "Humay müəllimə",
-  "Zərifə müəllimə",
-  "Firuzə müəllimə",
-  "Leyla müəllimə",
-  "Xəzər müəllim",
-  "Yasəmən müəllimə",
+/* ---------------- LISTENING SCRIPT (video scenes) ---------------- */
+const sceneData = [
+  {speaker:"Scott", avatar:"👦", text:"Hello, I'm Scott. What's your name?"},
+  {speaker:"Kate", avatar:"👧", text:"Hi, my name is Kate. Nice to meet you."},
+  {speaker:"Scott", avatar:"👦", text:"What's your name?"},
+  {speaker:"Andy", avatar:"👦", text:"My name is Andy."},
+  {speaker:"Kate", avatar:"👧", text:"Nice to meet you, Andy."},
+  {speaker:"Andy", avatar:"👦", text:"Nice to meet you too."},
+  {speaker:"Kate", avatar:"👧", text:"How are you, Andy?"},
+  {speaker:"Andy", avatar:"👦", text:"I'm fine, how are you?"},
+  {speaker:"Kate", avatar:"👧", text:"I'm fine, thank you. And you?"},
+  {speaker:"Scott", avatar:"👦", text:"I'm great."},
+  {narrator:true, avatar:"📖", text:"The three friends say goodbye to each other.", speaker:"Narrator"},
+  {speaker:"Scott", avatar:"👦", text:"See you."},
+  {speaker:"Kate", avatar:"👧", text:"See you later."},
+  {speaker:"Andy", avatar:"👦", text:"See you later."}
 ];
 
-/* Google Sheets üçün Apps Script URL-ni bura yazın (boş qalarsa nəticələr Claude yaddaşına yazılır) */
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbw2qyIeGMqLVc2Abw-zG0hSe13Lx8_ca5PxEnP8H-7wkO56dsGoI1ykXyAOr7qmrnER/exec';
-const TEST_ID = 'mixed';   // hansı vərəqə yazılacaq (ümumi Apps Script üçün)
-/* Yalnız Sheets olmayanda (Claude önizləməsində) istifadə olunan admin parolu. Sheets rejimində parol Apps Script-dədir. */
-const ADMIN_PASSWORD_LOCAL = 'admin2026';
-let teachers = TEACHERS.slice();
+/* ---- Per-character gender & voice assignment ---- */
+const speakerGenderMap = {
+  'Scott':'male', 'Andy':'male',
+  'Kate':'female',
+  'Narrator':'neutral'
+};
 
-/* ---------------- QUESTIONS (45) ---------------- */
-const SECTIONS = [
-  { part:0, title:"Vocabulary — Multiple Choice (Çoxseçimli test)", short:"Vocab 1", type:"mc", items:[
-    {n:1,  q:"I write with a ___.", opts:["pen","shoe","table"], c:0},
-    {n:2,  q:"The opposite of \"big\" is ___.", opts:["small","red","happy"], c:0},
-    {n:3,  q:"We sleep in the ___.", opts:["bedroom","kitchen","garden"], c:0},
-    {n:4,  q:"Monday, Tuesday and Friday are ___.", opts:["colours","days","animals"], c:1},
-    {n:5,  q:"A dog is an ___.", opts:["fruit","car","animal"], c:2},
-  ]},
-  { part:0, title:"Vocabulary — Multiple Choice (Çoxseçimli test)", short:"Vocab 2", type:"mc", items:[
-    {n:6,  q:"Ice is very ___.", opts:["hot","cold","red"], c:1},
-    {n:7,  q:"I wear ___ on my feet.", opts:["hats","shoes","gloves"], c:1},
-    {n:8,  q:"We eat at a ___.", opts:["table","bed","bus"], c:0},
-    {n:9,  q:"My father and mother are my ___.", opts:["parents","books","shoes"], c:0},
-    {n:10, q:"We read a ___ at school.", opts:["car","book","tree"], c:1},
-  ]},
-  { part:0, title:"Vocabulary — Multiple Choice (Çoxseçimli test)", short:"Vocab 3", type:"mc", items:[
-    {n:11, q:"A banana is a ___.", opts:["fruit","vegetable","drink"], c:0},
-    {n:12, q:"I go to school by ___.", opts:["cloud","pencil","bus"], c:2},
-    {n:13, q:"Today is cold. I wear a ___.", opts:["coat","shorts","sandals"], c:0},
-    {n:14, q:"I am hungry. I want to ___.", opts:["sleep","eat","run"], c:1},
-    {n:15, q:"There are seven days in a ___.", opts:["month","week","pen"], c:1},
-  ]},
-  { part:1, title:"Idioms — Multiple Choice (Çoxseçimli test)", short:"Idiom 1", type:"mc", items:[
-    {n:16, q:"Every morning I ___ at 7 o'clock and get out of bed.", opts:["wake up","put on","give up"], c:0},
-    {n:17, q:"It is cold. ___ your coat.", opts:["Take off","Put on","Clean up"], c:1},
-    {n:18, q:"Please ___ your room. It is dirty.", opts:["clean up","eat up","go out"], c:0},
-    {n:19, q:"When I ___, I want to be a doctor.", opts:["wake up","grow up","take off"], c:1},
-    {n:20, q:"I can't find my keys. I am ___ them.", opts:["taking off","growing up","looking for"], c:2},
-  ]},
-  { part:1, title:"Idioms — Gap-filling (Uyğun ifadəni yaz)", short:"Idiom Gap", type:"gap", items:[
-    {n:21, q:"I ______ my little sister. (look after / look for)", a:["look after"]},
-    {n:22, q:"It is raining. Don't ______ now. (go out / come in)", a:["go out"]},
-    {n:23, q:"______ your milk, please! (Drink up / Put on)", a:["drink up"]},
-    {n:24, q:"It's 8 o'clock. I must ______ for school. (get dressed / give up)", a:["get dressed"]},
-    {n:25, q:"Don't ______! Try again. (give up / put on)", a:["give up"]},
-  ]},
-  { part:1, title:"Idioms — Multiple Choice (Çoxseçimli test)", short:"Idiom 2", type:"mc", items:[
-    {n:26, q:"The pen is on the floor. Please ___ the pen.", opts:["pick up","put on","go out"], c:0},
-    {n:27, q:"Please ___ my dog while I am away.", opts:["go out","take care of","get dressed"], c:1},
-    {n:28, q:"I sleep at night. I ___ in the morning.", opts:["go out","wake up","clean up"], c:1},
-    {n:29, q:"Knock, knock! — \"___, please.\"", opts:["Come in","Go out","Take off"], c:0},
-    {n:30, q:"Come in! Please ___ your shoes.", opts:["put on","grow up","take off"], c:2},
-  ]},
-  { part:2, title:"Grammar — Multiple Choice (Çoxseçimli test)", short:"Grammar 1", type:"mc", items:[
-    {n:31, q:"She ___ a student.", opts:["am","is","are"], c:1},
-    {n:32, q:"I ___ a dog.", opts:["has","have","am"], c:1},
-    {n:33, q:"He ___ football on Sundays.", opts:["play","plays","playing"], c:1},
-    {n:34, q:"This is ___ apple.", opts:["a","an","the"], c:1},
-    {n:35, q:"We ___ good friends.", opts:["am","is","are"], c:2},
-  ]},
-  { part:2, title:"Grammar — Gap-filling (Boşluğa uyğun sözü yaz)", short:"Grammar Gap", type:"gap", items:[
-    {n:36, q:"They ______ at home. (is / are)", a:["are"]},
-    {n:37, q:"My sister ______ milk every day. (drink / drinks)", a:["drinks"]},
-    {n:38, q:"Birds ______ fly. (can / am)", a:["can"]},
-    {n:39, q:"He ______ a cat. (has / have)", a:["has"]},
-    {n:40, q:"I have two ______. (dog / dogs)", a:["dogs"]},
-  ]},
-  { part:2, title:"Grammar — Word Order (Sözlərə basaraq cümlə qur)", short:"Word order", type:"order", items:[
-    {n:41, words:["is","My","name","Ali"],          a:"My name is Ali."},
-    {n:42, words:["you","Are","a","student"],       a:"Are you a student?"},
-    {n:43, words:["like","I","milk"],              a:"I like milk."},
-    {n:44, words:["is","Where","the","cat"],        a:"Where is the cat?"},
-    {n:45, words:["has","He","a","cat"],            a:"He has a cat."},
-  ]},
+const speakerVoiceMap = {};
+
+const femaleKeywords = ['female','zira','susan','samantha','victoria','karen','moira','tessa','fiona','kate','serena','allison','ava','amelie','emma','joanna','salli','kimberly','ivy','google uk english female','google us english'];
+const maleKeywords = ['male','david','mark','daniel','fred','alex','james','george','ryan','oliver','matthew','justin','eric','google uk english male'];
+
+function loadVoices(){
+  return new Promise(resolve=>{
+    let voices = window.speechSynthesis.getVoices();
+    if(voices.length){ resolve(voices); return; }
+    window.speechSynthesis.onvoiceschanged = () => {
+      resolve(window.speechSynthesis.getVoices());
+    };
+    setTimeout(()=>resolve(window.speechSynthesis.getVoices()), 800);
+  });
+}
+
+async function ensureVoiceMap(){
+  if(Object.keys(speakerVoiceMap).length) return;
+  const voices = await loadVoices();
+  const enVoices = voices.filter(v=>v.lang && v.lang.toLowerCase().startsWith('en'));
+  const pool = enVoices.length ? enVoices : voices;
+
+  const femalePool = pool.filter(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+  const malePool = pool.filter(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+
+  let maleIdx = 0, femaleIdx = 0, neutralIdx = 0;
+
+  const uniqueSpeakers = [...new Set(sceneData.map(s => s.narrator ? 'Narrator' : s.speaker))];
+  uniqueSpeakers.forEach(sp => {
+    const gender = speakerGenderMap[sp] || 'neutral';
+    let voice = null, pitch = 1;
+    if(gender === 'male'){
+      voice = malePool.length ? malePool[maleIdx % malePool.length] : (pool.length ? pool[0] : null);
+      pitch = 0.82 + (maleIdx % 3) * 0.05;
+      maleIdx++;
+    } else if(gender === 'female'){
+      voice = femalePool.length ? femalePool[femaleIdx % femalePool.length] : (pool.length ? pool[pool.length - 1] : null);
+      pitch = 1.18 + (femaleIdx % 3) * 0.06;
+      femaleIdx++;
+    } else {
+      voice = pool.length ? pool[neutralIdx % pool.length] : null;
+      pitch = 1.0;
+      neutralIdx++;
+    }
+    speakerVoiceMap[sp] = { voice, pitch };
+  });
+}
+
+function showScene(item){
+  document.getElementById('idleMsg').style.display = 'none';
+  const avatarEl = document.getElementById('screenAvatar');
+  const speakerEl = document.getElementById('screenSpeaker');
+  avatarEl.style.display = 'block';
+  avatarEl.textContent = item.avatar;
+  if(item.narrator){
+    speakerEl.style.display = 'none';
+  } else {
+    speakerEl.style.display = 'inline-block';
+    speakerEl.textContent = item.speaker;
+  }
+}
+
+function resetScreen(){
+  document.getElementById('videoScreen').classList.remove('playing');
+  document.getElementById('idleMsg').style.display = 'block';
+  document.getElementById('screenAvatar').style.display = 'none';
+  document.getElementById('screenSpeaker').style.display = 'none';
+}
+
+async function playListening(){
+  if(!('speechSynthesis' in window)){
+    document.getElementById('noSpeechNote').style.display = 'block';
+    return;
+  }
+  window.speechSynthesis.cancel();
+  await ensureVoiceMap();
+  document.getElementById('videoScreen').classList.add('playing');
+
+  sceneData.forEach((item, idx)=>{
+    const key = item.narrator ? 'Narrator' : item.speaker;
+    const voiceInfo = speakerVoiceMap[key] || {};
+    const u = new SpeechSynthesisUtterance(item.text);
+    if(voiceInfo.voice) u.voice = voiceInfo.voice;
+    u.lang = voiceInfo.voice ? voiceInfo.voice.lang : 'en-GB';
+    u.pitch = voiceInfo.pitch || 1;
+    u.rate = item.narrator ? 0.85 : 0.9;
+    u.onstart = () => showScene(item);
+    if(idx === sceneData.length - 1){
+      u.onend = () => resetScreen();
+    }
+    window.speechSynthesis.speak(u);
+  });
+}
+function stopListening(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  resetScreen();
+}
+
+/* ---------------- QUESTION DATA ---------------- */
+const mcData = [
+  {q:"Who is the first person to introduce himself?", opts:["Andy","Scott","Kate"], correct:1},
+  {q:"What does Scott ask Kate?", opts:["How old are you?","What's your name?","Where do you live?"], correct:1},
+  {q:"What does Kate say to Andy after he tells her his name?", opts:["Nice to meet you","How are you?","Goodbye"], correct:0},
+  {q:"Who is the third character introduced in the video?", opts:["Andy","Ben","Tom"], correct:0},
+  {q:"How does the video end?", opts:["They say hello.","They say goodbye and see each other later.","They ask each other's name."], correct:1},
 ];
-const PART_TITLES = ["Vocabulary (Lüğət)", "Idioms (İdiomlar)", "Grammar (Qrammatika)"];
-function partOf(n){ return n<=15?0 : n<=30?1 : 2; }
 
-/* ---------------- STATE ---------------- */
-const mcSel = {};        // n -> option index
-const orderAns = {};     // n -> [{word, idx}]
-const orderUsed = {};    // n -> [bool]
+const matchWords = [
+  "👋 Hello!",
+  "🙋 What's your name?",
+  "😊 How are you?",
+  "🤝 Nice to meet you!",
+  "👋 Goodbye!"
+];
+const matchOptions = [
+  {k:"a", t:"😊 I'm fine."},
+  {k:"b", t:"👋 Hi!"},
+  {k:"c", t:"📛 My name is Kate."},
+  {k:"d", t:"🤝 Nice to meet you too!"},
+  {k:"e", t:"👋 See you later!"}
+];
+const matchAnswers = ["b","c","a","d","e"];
+
+const tfData = [
+  {s:"Scott is the first person to introduce himself.", correct:true},
+  {s:"Kate says her name is Angie.", correct:false},
+  {s:"Andy tells the others his name.", correct:true},
+  {s:"When someone asks Andy how he is, he says he is sad.", correct:false},
+  {s:"At the end, the friends say goodbye to each other.", correct:true},
+];
 
 /* ---------------- RENDER ---------------- */
-function renderAll(){
-  const tabs=document.getElementById('tabs'), pages=document.getElementById('pages');
-  SECTIONS.forEach((sec,i)=>{
-    const tb=document.createElement('button'); tb.dataset.page=i; tb.textContent=(i+1)+' · '+sec.short;
-    if(i===0) tb.className='active'; tb.onclick=()=>goTo(i); tabs.appendChild(tb);
-
-    const page=document.createElement('section'); page.className='page'+(i===0?' active':''); page.dataset.page=i;
-    page.innerHTML='<div><span class="part-tag">'+PART_TITLES[sec.part]+'</span><span class="step-tag">Bölmə '+(i+1)+' / '+SECTIONS.length+'</span></div>';
-    const card=document.createElement('div'); card.className='card'; card.innerHTML='<h2>'+sec.title+'</h2>';
-    sec.items.forEach(it=>card.appendChild(renderItem(sec,it)));
-    page.appendChild(card);
-
-    const nav=document.createElement('div'); nav.className='nav-buttons';
-    nav.innerHTML=(i>0?'<button onclick="goTo('+(i-1)+')">⟵ Geri</button>':'<span></span>')+
-                  (i<SECTIONS.length-1?'<button onclick="goTo('+(i+1)+')">Növbəti ➜</button>':'<span></span>');
-    page.appendChild(nav);
-    if(i===SECTIONS.length-1){
-      const sb=document.createElement('button'); sb.className='submit-btn'; sb.id='submitBtn'; sb.textContent='✅ Nəticəni göndər'; sb.onclick=gradeAll; page.appendChild(sb);
-    }
-    pages.appendChild(page);
+function renderMC(){
+  const c = document.getElementById('mcContainer');
+  mcData.forEach((item,i)=>{
+    const div = document.createElement('div');
+    div.className = 'q';
+    div.innerHTML = `<div class="qtext">${i+1}. ${item.q}</div>
+      <div class="options" id="mc-${i}">
+        ${item.opts.map((o,j)=>`<div class="opt" data-idx="${j}" onclick="selectOpt(${i},${j})">${String.fromCharCode(65+j)}) ${o}</div>`).join('')}
+      </div>`;
+    c.appendChild(div);
   });
-  updateCounter();
 }
-function renderItem(sec, it){
-  const div = document.createElement('div');
-  div.className = 'q';
-  if(sec.type === 'mc'){
-    div.innerHTML = '<div class="qtext"><span class="qnum">'+it.n+'.</span>'+it.q+'</div>'+
-      '<div class="options" id="mc-'+it.n+'">'+
-      it.opts.map((o,j)=>'<div class="opt" onclick="pickMc('+it.n+','+j+')">('+String.fromCharCode(65+j)+') '+o+'</div>').join('')+'</div>';
-  } else if(sec.type === 'gap' || sec.type === 'correct'){
-    div.innerHTML = '<div class="qtext"><span class="qnum">'+it.n+'.</span>'+it.q+(sec.type==='correct'?' →':'')+'</div>'+
-      '<input type="text" class="text-input" id="in-'+it.n+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+(sec.type==='gap'?'Boşluğa yazılacaq söz...':'Düzgün cümləni yaz...')+'" oninput="updateCounter()">';
-  } else if(sec.type === 'order'){
-    orderAns[it.n] = []; orderUsed[it.n] = new Array(it.words.length).fill(false);
-    div.innerHTML = '<div class="qtext"><span class="qnum">'+it.n+'.</span>('+it.words.join(' / ')+') →</div>'+
-      '<div>'+it.words.map((w,k)=>'<span class="word-chip" id="chip-'+it.n+'-'+k+'" onclick="pickWord('+it.n+','+k+')">'+w+'</span>').join(' ')+'</div>'+
-      '<div class="answer-line" id="ans-'+it.n+'"><span class="answer-placeholder">Cümləni qurmaq üçün sözlərə sırayla bas...</span></div>'+
-      '<button class="clear-btn" onclick="clearOrder('+it.n+')">🔄 Təmizlə</button>';
-  }
-  return div;
+window.mcSelected = new Array(mcData.length).fill(null);
+function selectOpt(qi, oi){
+  mcSelected[qi] = oi;
+  const wrap = document.getElementById('mc-'+qi);
+  [...wrap.children].forEach((el,idx)=>{ el.classList.toggle('selected', idx===oi); });
 }
-function pickMc(n,j){
-  mcSel[n] = j;
-  [...document.getElementById('mc-'+n).children].forEach((el,k)=>el.classList.toggle('selected',k===j));
-  updateCounter();
-}
-function itemOf(n){ for(const s of SECTIONS){ const f=s.items.find(i=>i.n===n); if(f) return f; } }
-function pickWord(n,k){
-  if(orderUsed[n][k]) return;
-  orderUsed[n][k]=true; orderAns[n].push({w:itemOf(n).words[k], k});
-  redrawOrder(n);
-}
-function removeWord(n,pos){
-  const r = orderAns[n].splice(pos,1)[0]; if(r) orderUsed[n][r.k]=false; redrawOrder(n);
-}
-function clearOrder(n){ orderAns[n]=[]; orderUsed[n]=new Array(itemOf(n).words.length).fill(false); redrawOrder(n); }
-function redrawOrder(n){
-  const el = document.getElementById('ans-'+n);
-  el.innerHTML = orderAns[n].length
-    ? orderAns[n].map((a,pos)=>'<span class="answer-chip" onclick="removeWord('+n+','+pos+')">'+a.w+'</span>').join(' ')
-    : '<span class="answer-placeholder">Cümləni qurmaq üçün sözlərə sırayla bas...</span>';
-  itemOf(n).words.forEach((w,k)=>{ const c=document.getElementById('chip-'+n+'-'+k); if(c) c.classList.toggle('used',orderUsed[n][k]); });
-  updateCounter();
-}
-function answeredCount(){
-  let c = 0;
-  SECTIONS.forEach(s=>s.items.forEach(it=>{
-    if(s.type==='mc' && mcSel[it.n]!==undefined) c++;
-    else if((s.type==='gap'||s.type==='correct')){ const e=document.getElementById('in-'+it.n); if(e && e.value.trim()) c++; }
-    else if(s.type==='order' && orderAns[it.n] && orderAns[it.n].length) c++;
-  }));
-  return c;
-}
-function updateCounter(){ document.getElementById('counter').textContent = 'Cavablandırılıb: '+answeredCount()+' / 45'; }
 
-/* ---------------- GATE / NAV ---------------- */
+function renderMatch(){
+  const c = document.getElementById('matchContainer');
+  matchWords.forEach((w,i)=>{
+    const row = document.createElement('div');
+    row.className = 'q match-row';
+    row.id = 'match-row-'+i;
+    const opts = matchOptions.map(o=>`<option value="${o.k}">${o.k}) ${o.t}</option>`).join('');
+    row.innerHTML = `<div class="match-word">${i+1}. ${w}</div>
+      <select class="match-select" id="match-${i}">
+        <option value="">-- seç --</option>
+        ${opts}
+      </select>
+      <span id="match-hint-${i}"></span>`;
+    c.appendChild(row);
+  });
+}
+
+window.tfSelected = new Array(tfData.length).fill(null);
+function renderTF(){
+  const c = document.getElementById('tfContainer');
+  tfData.forEach((item,i)=>{
+    const div = document.createElement('div');
+    div.className = 'q';
+    div.innerHTML = `<div class="qtext">${i+1}. ${item.s}</div>
+      <div class="tf-options" id="tf-${i}">
+        <div class="tf-opt" data-val="true" onclick="selectTF(${i},true)">True</div>
+        <div class="tf-opt" data-val="false" onclick="selectTF(${i},false)">False</div>
+      </div>`;
+    c.appendChild(div);
+  });
+}
+function selectTF(qi, val){
+  tfSelected[qi] = val;
+  const wrap = document.getElementById('tf-'+qi);
+  [...wrap.children].forEach(el=>{
+    el.classList.toggle('selected', (el.dataset.val==='true')===val);
+  });
+}
+
+renderMC(); renderMatch(); renderTF();
+
+/* ---------------- STUDENT GATE ---------------- */
 let studentInfo = null;
-function fillTeachers(){
-  const sel=document.getElementById('gateTeacher'); const cur=sel.value;
-  sel.innerHTML='<option value="">-- Müəllimi seç --</option>';
-  teachers.forEach(n=>{ const o=document.createElement('option'); o.value=n; o.textContent=n; sel.appendChild(o); });
-  if(cur && teachers.includes(cur)) sel.value=cur;
-}
-async function loadTeachers(){
-  try{
-    let list=null;
-    if(SHEETS_URL){
-      const r=await fetch(SHEETS_URL+'?action=teachers&t='+Date.now(),{cache:'no-store'});
-      const d=await r.json(); if(Array.isArray(d.teachers)&&d.teachers.length) list=d.teachers;
-    } else if(typeof window.storage!=='undefined'){
-      const r=await window.storage.get('teachers',true); if(r&&r.value) list=JSON.parse(r.value);
-    }
-    if(list&&list.length){ teachers=list; fillTeachers(); }
-  }catch(e){ /* ehtiyat siyahı qalır */ }
-}
-
-/* ---------------- ADMIN: müəllimlər siyahısı ---------------- */
-let adminPassword='', adminDraft=[];
-function openAdminLogin(){ document.getElementById('adminGate').style.display='flex'; resetPw('adminPassword'); document.getElementById('adminError').textContent=''; document.getElementById('adminPassword').focus(); }
-function closeAdminLogin(){ document.getElementById('adminGate').style.display='none'; }
-async function checkAdminPassword(){
-  const pw=document.getElementById('adminPassword').value; const err=document.getElementById('adminError');
-  err.textContent='Yoxlanılır...';
-  try{
-    let ok=false;
-    if(SHEETS_URL){
-      const r=await fetch(SHEETS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'checkAdmin',password:pw})});
-      const d=await r.json(); ok=!!d.ok; if(!ok && d.error){ err.textContent=d.error; return; }
-    } else { ok = pw===ADMIN_PASSWORD_LOCAL; }
-    if(!ok){ err.textContent='Parol yanlışdır.'; return; }
-    adminPassword=pw; adminDraft=teachers.slice(); closeAdminLogin();
-    document.getElementById('gateOverlay').style.display='none';
-    document.getElementById('appMain').style.display='block';
-    document.getElementById('tabs').style.display='none';
-    document.getElementById('counter').style.display='none';
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('teacherPage').style.display='none';
-    document.getElementById('adminPage').style.display='block';
-    renderAdminList();
-  }catch(e){ err.textContent='Bağlantı xətası: '+(e&&e.message?e.message:e); }
-}
-document.addEventListener('keydown',e=>{ if(e.key==='Enter'&&document.getElementById('adminGate').style.display==='flex') checkAdminPassword(); });
-function renderAdminList(){
-  const box=document.getElementById('adminList'); box.innerHTML='';
-  adminDraft.forEach((name,i)=>{
-    const row=document.createElement('div'); row.className='admin-row';
-    const sp=document.createElement('span'); sp.textContent=name;
-    const bt=document.createElement('button'); bt.className='del-btn'; bt.textContent='🗑️ Sil'; bt.onclick=()=>{ adminDraft.splice(i,1); renderAdminList(); };
-    row.appendChild(sp); row.appendChild(bt); box.appendChild(row);
-  });
-  if(!adminDraft.length) box.innerHTML='<div class="empty-note">Siyahı boşdur.</div>';
-}
-function addTeacher(){
-  const inp=document.getElementById('newTeacher'); const v=inp.value.trim(); const st=document.getElementById('adminStatus');
-  if(!v) return;
-  if(adminDraft.some(x=>x.toLowerCase()===v.toLowerCase())){ st.style.color='var(--marker)'; st.textContent='Bu müəllim artıq siyahıdadır.'; return; }
-  adminDraft.push(v); inp.value=''; st.textContent=''; renderAdminList();
-}
-async function saveTeachers(){
-  const st=document.getElementById('adminStatus');
-  if(!adminDraft.length){ st.style.color='var(--marker)'; st.textContent='Siyahı boş ola bilməz.'; return; }
-  st.style.color='var(--ink-soft)'; st.textContent='Yadda saxlanılır...';
-  try{
-    if(SHEETS_URL){
-      const r=await fetch(SHEETS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'setTeachers',password:adminPassword,teachers:adminDraft})});
-      const d=await r.json(); if(!d.ok) throw new Error(d.error||'Server xətası');
-    } else if(typeof window.storage!=='undefined'){
-      await window.storage.set('teachers',JSON.stringify(adminDraft),true);
-    } else throw new Error('Yaddaş bağlantısı yoxdur');
-    teachers=adminDraft.slice(); fillTeachers();
-    st.style.color='var(--chalk-green)'; st.textContent='✅ Yadda saxlanıldı. Siyahı bütün şagirdlərdə yenilənəcək.';
-  }catch(e){ st.style.color='var(--marker)'; st.textContent='⚠️ Saxlanmadı: '+(e&&e.message?e.message:e); }
-}
-
 function startTest(){
-  const first=document.getElementById('gateFirst').value.trim();
-  const last=document.getElementById('gateLast').value.trim();
-  const teacher=document.getElementById('gateTeacher').value.trim();
-  const group=document.getElementById('gateGroup').value.trim();
-  const err=document.getElementById('gateError');
-  if(!first||!last||!teacher||!group){ err.textContent='Zəhmət olmasa bütün xanaları doldur.'; return; }
-  err.textContent=''; studentInfo={first,last,teacher,group};
-  document.getElementById('gateOverlay').style.display='none';
-  document.getElementById('appMain').style.display='block';
-  document.getElementById('studentStrip').innerHTML='<span>👤 '+first+' '+last+'</span><span>🧑‍🏫 '+teacher+'</span><span>🏫 '+group+'</span>';
-}
-function goTo(p){
-  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active', x.dataset.page==p));
-  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('active', b.dataset.page==p));
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-/* ---------------- GRADING ---------------- */
-function norm(s){
-  return String(s||'').toLowerCase().replace(/[\u2018\u2019\u02BC`´]/g,"'").trim().replace(/[.!?,]+$/,'').replace(/\s+/g,' ');
-}
-/* pure function: answers = {mc:{n:idx}, text:{n:string}, order:{n:string}} */
-function gradeSections(answers){
-  const details = []; let score = 0;
-  SECTIONS.forEach(sec=>{
-    sec.items.forEach(it=>{
-      let selected=null, correctText='', ok=false;
-      if(sec.type==='mc'){
-        const idx = answers.mc[it.n];
-        selected = idx===undefined ? null : it.opts[idx];
-        correctText = it.opts[it.c]; ok = idx===it.c;
-      } else if(sec.type==='gap' || sec.type==='correct'){
-        const v = (answers.text[it.n]||'').trim();
-        selected = v || null; correctText = it.a[0];
-        ok = !!v && it.a.some(x=>norm(x)===norm(v));
-      } else if(sec.type==='order'){
-        const v = (answers.order[it.n]||'').trim();
-        selected = v || null; correctText = it.a;
-        ok = !!v && norm(v)===norm(it.a);
-      }
-      if(ok) score++;
-      details.push({ n:it.n, sec:sec.title.split(' — ')[0], q:(it.q || ('('+it.words.join(' / ')+')')), selectedText:selected, correctText, isCorrect:ok });
-    });
-  });
-  return { score, max:details.length, pct:Math.round(score/details.length*100), details };
-}
-function collectAnswers(){
-  const a={mc:{}, text:{}, order:{}};
-  SECTIONS.forEach(s=>s.items.forEach(it=>{
-    if(s.type==='mc' && mcSel[it.n]!==undefined) a.mc[it.n]=mcSel[it.n];
-    if(s.type==='gap'||s.type==='correct'){ const e=document.getElementById('in-'+it.n); a.text[it.n]=e?e.value:''; }
-    if(s.type==='order') a.order[it.n]=(orderAns[it.n]||[]).map(x=>x.w).join(' ');
-  }));
-  return a;
-}
-function gradeAll(){
-  const btn=document.getElementById('submitBtn'); if(btn.disabled) return;
-  btn.disabled=true; btn.textContent='⏳ Göndərilir...';
-  const res = gradeSections(collectAnswers());
-  document.getElementById('tabs').style.display='none';
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('counter').style.display='none';
-  const box=document.getElementById('resultBox');
-  box.style.display='block';
-  box.innerHTML='<h2>Təbriklər! 🎉</h2><p style="font-weight:800;font-size:16px;">Testi tamamladın!</p>'+
-    '<p style="color:var(--ink-soft);font-weight:700;font-size:14px;">Nəticən müəllimə göndərildi.</p>'+
-    '<p id="saveStatus" style="font-size:13px;color:var(--ink-soft);font-weight:700;">Göndərilir...</p>'+
-    '<button class="retry-btn" onclick="location.reload()">🔄 Yenidən başla</button>';
-  window.scrollTo({top:0,behavior:'smooth'});
-  saveResult(res);
+  const first = document.getElementById('gateFirst').value.trim();
+  const last = document.getElementById('gateLast').value.trim();
+  const teacher = document.getElementById('gateTeacher').value.trim();
+  const group = document.getElementById('gateGroup').value.trim();
+  const err = document.getElementById('gateError');
+  if(!first || !last || !teacher || !group){
+    err.textContent = 'Zəhmət olmasa bütün xanaları doldur.';
+    return;
+  }
+  err.textContent = '';
+  studentInfo = { first, last, teacher, group };
+  document.getElementById('gateOverlay').style.display = 'none';
+  document.getElementById('appMain').style.display = 'block';
+  document.getElementById('studentStrip').innerHTML = `
+    <span>👤 ${first} ${last}</span>
+    <span>🧑‍🏫 ${escHtml(teacher)}</span>
+    <span>🏫 ${group}</span>`;
 }
 
-/* ---------------- STORAGE ---------------- */
-function delay(ms){ return new Promise(r=>setTimeout(r,ms)); }
-async function withRetry(fn,attempts,ms){ let last; for(let i=0;i<attempts;i++){ try{ return await fn(); }catch(e){ last=e; if(i<attempts-1) await delay(ms); } } throw last; }
-async function saveResult(res){
-  const st=document.getElementById('saveStatus');
-  const record={ test:TEST_ID, first:studentInfo.first, last:studentInfo.last, teacher:studentInfo.teacher, group:studentInfo.group,
-    score:res.score, max:res.max, pct:res.pct, details:res.details };
-  try{
-    if(SHEETS_URL){
-      await withRetry(()=>fetch(SHEETS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(record)})
-        .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r; }),3,1200);
-    } else if(typeof window.storage!=='undefined'){
-      record.date=new Date().toISOString();
-      const id=Date.now()+'-'+Math.random().toString(36).slice(2,8);
-      await withRetry(()=>window.storage.set('results:'+id,JSON.stringify(record),true),3,1200);
-    } else throw new Error('Yaddaş bağlantısı yoxdur');
-    if(st) st.textContent='✅ Nəticə göndərildi.';
-  }catch(err){ if(st) st.textContent='⚠️ Nəticə yadda saxlanmadı: '+(err&&err.message?err.message:err); }
-}
-
-/* ---------------- TEACHER ---------------- */
-const TEACHER_PASSWORD='imtahan2026';
+/* ---------------- TEACHER ACCESS ---------------- */
+const TEACHER_PASSWORD = 'imtahan2026';   // nəticələrə baxmaq
+const ADMIN_PASSWORD = 'admin2026';        // admin paneli
 function togglePw(id, btn){
-  const inp=document.getElementById(id); const show=inp.type==='password';
-  inp.type=show?'text':'password'; btn.textContent=show?'🙈':'👁️';
-  const lbl=show?'Parolu gizlət':'Parolu göstər'; btn.setAttribute('aria-label',lbl); btn.title=lbl; inp.focus();
+  const inp = document.getElementById(id);
+  const show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password';
+  btn.textContent = show ? '🙈' : '👁️';
+  const lbl = show ? 'Parolu gizlət' : 'Parolu göstər';
+  btn.setAttribute('aria-label', lbl); btn.title = lbl;
+  inp.focus();
 }
 function resetPw(id){
-  const inp=document.getElementById(id); inp.value=''; inp.type='password';
-  const btn=inp.parentElement.querySelector('.eye-btn');
-  if(btn){ btn.textContent='👁️'; btn.setAttribute('aria-label','Parolu göstər'); btn.title='Parolu göstər'; }
+  const inp = document.getElementById(id); inp.value = ''; inp.type = 'password';
+  const btn = inp.parentElement.querySelector('.eye-btn');
+  if(btn){ btn.textContent = '👁️'; btn.setAttribute('aria-label','Parolu göstər'); btn.title = 'Parolu göstər'; }
 }
-function openTeacherLogin(){ document.getElementById('teacherGate').style.display='flex'; resetPw('teacherPassword'); document.getElementById('teacherError').textContent=''; document.getElementById('teacherPassword').focus(); }
-function closeTeacherLogin(){ document.getElementById('teacherGate').style.display='none'; }
+function enterStaff(pageId){
+  document.getElementById('gateOverlay').style.display = 'none';
+  const app = document.getElementById('appMain');
+  app.style.display = 'block'; app.classList.add('staff');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function openTeacherLogin(){
+  closeAdminLogin();
+  document.getElementById('teacherGate').style.display = 'flex';
+  resetPw('teacherPassword');
+  document.getElementById('teacherError').textContent = '';
+  document.getElementById('teacherPassword').focus();
+}
+function closeTeacherLogin(){ document.getElementById('teacherGate').style.display = 'none'; }
 function checkTeacherPassword(){
-  if(document.getElementById('teacherPassword').value===TEACHER_PASSWORD){
+  const val = document.getElementById('teacherPassword').value;
+  if(val === TEACHER_PASSWORD){
     closeTeacherLogin();
-    document.getElementById('gateOverlay').style.display='none';
-    document.getElementById('appMain').style.display='block';
-    document.getElementById('tabs').style.display='none';
-    document.getElementById('counter').style.display='none';
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('teacherPage').style.display='block';
+    enterStaff('teacherPage');
     loadResults();
-  } else document.getElementById('teacherError').textContent='Parol yanlışdır.';
-}
-document.addEventListener('keydown',e=>{ if(e.key==='Enter'&&document.getElementById('teacherGate').style.display==='flex') checkTeacherPassword(); });
-
-function pctColor(p){ return p>=80?'#3E8E5C':p>=60?'#4C8FBF':p>=40?'#F2B705':'#E8573F'; }
-function safeId(k){ return String(k).replace(/[^a-zA-Z0-9_-]/g,'_'); }
-function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function toggleDetail(k){ const r=document.getElementById('detail-'+safeId(k)); if(r) r.style.display=r.style.display==='none'?'table-row':'none'; }
-function detailHtml(r){
-  const items=r.details; if(!items||!items.length) return '<div class="empty-note">Ətraflı məlumat yoxdur.</div>';
-  let html='', lastSec='';
-  items.forEach(it=>{
-    const part = PART_TITLES[partOf(it.n)];
-    const secKey = part+'|'+(it.sec||'');
-    if(secKey!==lastSec){ html+='<div class="detail-sec">'+esc(part)+' — '+esc(it.sec||'')+'</div>'; lastSec=secKey; }
-    const sel = it.selectedText ? esc(it.selectedText) : '(cavab verilməyib)';
-    html+='<div class="detail-item '+(it.isCorrect?'correct':'incorrect')+'">'+(it.isCorrect?'✔':'✘')+' '+it.n+'. '+esc(it.q)+'<br>Cavab: <b>'+sel+'</b>'+(it.isCorrect?'':' — Düzgün: <b>'+esc(it.correctText)+'</b>')+'</div>';
-  });
-  return html;
-}
-async function fetchRecords(){
-  if(SHEETS_URL){
-    const res=await withRetry(()=>fetch(SHEETS_URL+'?test='+TEST_ID+'&t='+Date.now(),{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r; }),3,1200);
-    const data=await res.json();
-    window.__lastFetchInfo={rows:(data.results||[]).length};
-    return (data.results||[]).map(r=>({...r,_key:r.id}));
+  } else {
+    document.getElementById('teacherError').textContent = 'Parol yanlışdır.';
   }
-  if(typeof window.storage==='undefined') throw new Error('Yaddaş bağlantısı yoxdur');
-  const list=await window.storage.list('results:',true); const out=[];
-  for(const key of (list&&list.keys)||[]){ try{ const r=await window.storage.get(key,true); if(r&&r.value){ const p=JSON.parse(r.value); p._key=key; out.push(p); } }catch(e){} }
-  return out;
 }
-async function loadResults(){
-  const wrap=document.getElementById('resultsTableWrap');
-  wrap.innerHTML='<div class="empty-note">Yüklənir...</div>';
-  try{
-    const records=await fetchRecords();
-    records.sort((a,b)=>new Date(b.date)-new Date(a.date));
-    if(!records.length){
-      const info=window.__lastFetchInfo?'<br><span style="font-size:11px;">(Cədvəldən gələn sətir sayı: '+window.__lastFetchInfo.rows+')</span>':'';
-      wrap.innerHTML='<div class="empty-note">Hələ heç bir nəticə yoxdur.'+info+'</div>'; return;
-    }
-    const by={};
-    records.forEach(r=>{
-      const d=new Date(r.date);
-      const ds=isNaN(d)?'':d.toLocaleDateString('az-AZ')+' '+d.toLocaleTimeString('az-AZ',{hour:'2-digit',minute:'2-digit'});
-      const det=r.details||[];
-      const pc=[0,0,0]; det.forEach(x=>{ if(x.isCorrect) pc[partOf(x.n)]++; });
-      const row='<tr><td><button class="student-name-btn" onclick="toggleDetail(\''+r._key+'\')">'+esc(r.first)+' '+esc(r.last)+'</button></td>'+
-        '<td>'+esc(r.group)+'</td><td>'+pc[0]+'/15</td><td>'+pc[1]+'/15</td><td>'+pc[2]+'/15</td><td>'+r.score+'/'+r.max+'</td>'+
-        '<td><span class="pct-pill" style="background:'+pctColor(r.pct)+'">'+r.pct+'/100</span></td><td>'+ds+'</td>'+
-        '<td><button class="del-btn" onclick="deleteResult(\''+r._key+'\')">🗑️ Sil</button></td></tr>'+
-        '<tr class="detail-row" id="detail-'+safeId(r._key)+'" style="display:none;"><td colspan="9">'+detailHtml(r)+'</td></tr>';
-      const t=r.teacher||'Naməlum müəllim'; (by[t]=by[t]||[]).push(row);
+function openAdminLogin(){
+  closeTeacherLogin();
+  document.getElementById('adminGate').style.display = 'flex';
+  resetPw('adminPassword');
+  document.getElementById('adminError').textContent = '';
+  document.getElementById('adminPassword').focus();
+}
+function closeAdminLogin(){ document.getElementById('adminGate').style.display = 'none'; }
+function checkAdminPassword(){
+  const val = document.getElementById('adminPassword').value;
+  if(val === ADMIN_PASSWORD){
+    closeAdminLogin();
+    enterStaff('adminPage');
+    loadAdmin();
+  } else {
+    document.getElementById('adminError').textContent = 'Parol yanlışdır.';
+  }
+}
+document.addEventListener('keydown', (e)=>{
+  if(e.key !== 'Enter') return;
+  if(document.getElementById('teacherGate').style.display === 'flex') checkTeacherPassword();
+  else if(document.getElementById('adminGate').style.display === 'flex') checkAdminPassword();
+});
+
+/* ---------------- TAB NAV ---------------- */
+function goTo(pageIdx){
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active', p.dataset.page==pageIdx));
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.page==pageIdx));
+  const sb=document.getElementById('submitBtn'); if(sb) sb.classList.toggle('submit-hidden', Number(pageIdx)!==2);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.querySelectorAll('nav.tabs button').forEach(b=>{
+  b.addEventListener('click', ()=>goTo(b.dataset.page));
+});
+
+/* ---------------- GRADING ---------------- */
+function gradeAll(){
+  let mcScore=0, matchScore=0, tfScore=0;
+  const mcDetails = [];
+  const matchDetails = [];
+  const tfDetails = [];
+
+  mcData.forEach((item,i)=>{
+    const isCorrect = mcSelected[i]===item.correct;
+    if(isCorrect) mcScore++;
+    mcDetails.push({
+      q: item.q,
+      selectedText: mcSelected[i]!=null ? item.opts[mcSelected[i]] : null,
+      correctText: item.opts[item.correct],
+      isCorrect
     });
-    const names=Object.keys(by).sort((a,b)=>{
-      const ia=teachers.indexOf(a), ib=teachers.indexOf(b);
-      if(ia===-1&&ib===-1) return a.localeCompare(b); if(ia===-1) return 1; if(ib===-1) return -1; return ia-ib; });
-    wrap.innerHTML=names.map(t=>'<div style="margin-bottom:26px;"><h3 class="teacher-heading">🧑‍🏫 '+esc(t)+' <span class="teacher-count">('+by[t].length+' şagird)</span></h3>'+
-      '<div class="results-table-wrap"><table class="results-table"><thead><tr><th>Şagird</th><th>Qrup</th><th>Lüğət</th><th>İdiomlar</th><th>Qrammatika</th><th>Cəmi</th><th>Bal /100</th><th>Tarix</th><th></th></tr></thead><tbody>'+by[t].join('')+'</tbody></table></div></div>').join('');
-  }catch(err){ wrap.innerHTML='<div class="empty-note">Nəticələr yüklənmədi: '+esc(err&&err.message?err.message:err)+'</div>'; }
+  });
+
+  matchAnswers.forEach((ans,i)=>{
+    const sel = document.getElementById('match-'+i);
+    const val = sel.value;
+    const isCorrect = val === ans;
+    if(isCorrect) matchScore++;
+    matchDetails.push({
+      word: matchWords[i],
+      selectedText: val ? matchOptions.find(o=>o.k===val).t : null,
+      correctText: matchOptions.find(o=>o.k===ans).t,
+      isCorrect
+    });
+  });
+
+  tfData.forEach((item,i)=>{
+    const isCorrect = tfSelected[i]===item.correct;
+    if(isCorrect) tfScore++;
+    tfDetails.push({
+      s: item.s,
+      selectedText: tfSelected[i]===null ? null : (tfSelected[i] ? 'True' : 'False'),
+      correctText: item.correct ? 'True' : 'False',
+      isCorrect
+    });
+  });
+
+  const total = mcScore+matchScore+tfScore;
+  const maxTotal = mcData.length + matchAnswers.length + tfData.length;
+  const pct = Math.round((total/maxTotal)*100);
+
+  const box = document.getElementById('resultBox');
+  box.style.display = 'block';
+  box.innerHTML = `
+    <h2>Təbriklər! 🎉</h2>
+    <p style="font-weight:800; font-size:16px;">Testi tamamladın!</p>
+    <p style="color:var(--ink-soft); font-weight:700; font-size:14px;">Nəticən müəllimə göndərildi. Növbəti dərsdə onunla müzakirə edə bilərsən.</p>
+    <p id="saveStatus" style="font-size:13px;color:var(--ink-soft);font-weight:700;">Göndərilir...</p>
+    <button class="retry-btn" onclick="location.reload()">🔄 Yenidən başla</button>
+  `;
+  box.scrollIntoView({behavior:'smooth', block:'start'});
+
+  saveResult({mcScore, matchScore, tfScore, total, maxTotal, pct, mcDetails, matchDetails, tfDetails});
 }
+
+/* ---------------- SHARED STORAGE ---------------- */
+function delay(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
+
+async function withRetry(fn, attempts, delayMs){
+  let lastErr;
+  for(let i=0; i<attempts; i++){
+    try{
+      return await fn();
+    }catch(err){
+      lastErr = err;
+      if(i < attempts-1) await delay(delayMs);
+    }
+  }
+  throw lastErr;
+}
+
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzfsRoBC_W0JYm3d4srGPxdjr_zUYS6ABV5W9UGJ86jMd85l3nATx9iQEdiPAKU664t/exec';
+
+
+/* ---------------- MÜƏLLİM SİYAHISI (Admin idarə edir) ---------------- */
+const TEACHER_MARKER = '__TEACHER__';          // Admin-in əlavə etdiyi müəllim
+const HIDE_MARKER = '__TEACHER_HIDE__';        // Admin-in siyahıdan sildiyi müəllim
+const TEACHER_CACHE_KEY = 'td_teacher_list_v2';
+const BASE_TEACHERS = ["Qaçay müəllim","Aysel müəllimə","Humay müəllimə","Tavat müəllimə",
+  "Zərifə müəllimə","Firuzə müəllimə","Leyla müəllimə","Xəzər müəllim","Yasəmən müəllimə"];
+
+function escHtml(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function normName(n){ return String(n).trim().replace(/\s+/g,' ').toLocaleLowerCase('az'); }
+
+async function fetchRows(){
+  const res = await withRetry(() => fetch(SHEETS_URL + '?t=' + Date.now()).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+  const data = await res.json();
+  return data.results || [];
+}
+function computeTeachers(rows){
+  const sorted = (rows||[]).slice().sort((a,b) => new Date(a.date) - new Date(b.date));
+  const added = [], hidden = [];
+  sorted.forEach(r => {
+    if(r.first === TEACHER_MARKER && r.teacher) added.push({ name: String(r.teacher).trim(), id: r.id });
+    else if(r.first === HIDE_MARKER && r.teacher) hidden.push({ name: String(r.teacher).trim(), id: r.id });
+  });
+  const hiddenSet = new Set(hidden.map(h => normName(h.name)));
+  const seen = new Set(), list = [];
+  BASE_TEACHERS.concat(added.map(a => a.name)).forEach(n => {
+    const k = normName(n);
+    if(seen.has(k) || hiddenSet.has(k)) return;
+    seen.add(k); list.push(n);
+  });
+  return { list, added, hidden };
+}
+function fillTeacherSelect(list){
+  const sel = document.getElementById('gateTeacher');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">-- Müəllimi seç --</option>' +
+    list.map(n => '<option value="'+escHtml(n)+'">'+escHtml(n)+'</option>').join('');
+  if(list.includes(cur)) sel.value = cur;
+}
+function cacheTeachers(list){ try{ localStorage.setItem(TEACHER_CACHE_KEY, JSON.stringify(list)); }catch(e){} }
+async function loadTeachers(){
+  try{
+    const cached = JSON.parse(localStorage.getItem(TEACHER_CACHE_KEY) || 'null');
+    if(Array.isArray(cached) && cached.length) fillTeacherSelect(cached);
+  }catch(e){}
+  try{
+    const t = computeTeachers(await fetchRows());
+    fillTeacherSelect(t.list); cacheTeachers(t.list);
+  }catch(e){ console.error('Teacher list load error:', e); }
+}
+loadTeachers();
+
+/* ---- Admin paneli ---- */
+let adminState = { list: [], added: [], hidden: [] };
+function setAdminStatus(msg, bad){
+  const el = document.getElementById('adminStatus');
+  el.style.color = bad ? 'var(--marker)' : 'var(--chalk-green)';
+  el.textContent = msg || '';
+}
+function postJson(obj){
+  return withRetry(() => fetch(SHEETS_URL, {
+    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(obj)
+  }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+}
+function postMarker(marker, name){
+  return postJson({ first: marker, last: '-', teacher: name, group: '-',
+    mc: 0, match: 0, tf: 0, total: 0, max: 0, pct: 0, details: { mc: [], match: [], tf: [] } });
+}
+function renderAdminList(){
+  const box = document.getElementById('adminList');
+  if(!adminState.list.length){ box.innerHTML = '<div class="empty-note">Siyahı boşdur.</div>'; return; }
+  box.innerHTML = adminState.list.map((n,i) =>
+    '<div class="admin-row"><span>🧑‍🏫 '+escHtml(n)+'</span><button class="del-btn" onclick="adminDelete('+i+')">🗑️ Sil</button></div>').join('');
+}
+async function loadAdmin(){
+  document.getElementById('adminList').innerHTML = '<div class="empty-note">Yüklənir...</div>';
+  setAdminStatus('');
+  try{
+    adminState = computeTeachers(await fetchRows());
+    renderAdminList(); fillTeacherSelect(adminState.list); cacheTeachers(adminState.list);
+  }catch(e){
+    document.getElementById('adminList').innerHTML = '<div class="empty-note">Siyahı yüklənmədi (server cavab vermir).</div>';
+    console.error('Admin load error:', e);
+  }
+}
+async function adminAdd(){
+  const inp = document.getElementById('newTeacher');
+  const btn = document.getElementById('adminAddBtn');
+  const name = inp.value.trim().replace(/\s+/g,' ');
+  if(name.length < 2){ setAdminStatus('Müəllimin adını yaz.', true); return; }
+  const k = normName(name);
+  if(adminState.list.some(n => normName(n) === k)){ setAdminStatus('Bu müəllim artıq siyahıdadır.', true); return; }
+  btn.disabled = true; setAdminStatus('Əlavə olunur...');
+  try{
+    const hid = adminState.hidden.filter(h => normName(h.name) === k);
+    if(hid.length){
+      for(const h of hid) await postJson({ action: 'delete', id: h.id });     // əvvəl silinmişdisə, geri qaytar
+    } else {
+      await postMarker(TEACHER_MARKER, name);
+    }
+    inp.value = '';
+    await loadAdmin();
+    setAdminStatus('✅ Əlavə olundu: ' + name);
+  }catch(e){ setAdminStatus('Əlavə olunmadı (server cavab vermir). Bir az sonra yenidən cəhd et.', true); console.error(e); }
+  finally{ btn.disabled = false; }
+}
+async function adminDelete(i){
+  const name = adminState.list[i];
+  if(name === undefined) return;
+  if(!confirm('"'+name+'" siyahıdan silinsin? (Köhnə nəticələr silinmir.)')) return;
+  const k = normName(name);
+  const isBase = BASE_TEACHERS.some(b => normName(b) === k);
+  setAdminStatus('Silinir...');
+  try{
+    for(const a of adminState.added.filter(a => normName(a.name) === k)) await postJson({ action: 'delete', id: a.id });
+    if(isBase) await postMarker(HIDE_MARKER, name);
+    await loadAdmin();
+    setAdminStatus('✅ Silindi: ' + name);
+  }catch(e){ setAdminStatus('Silinmədi (server cavab vermir). Bir az sonra yenidən cəhd et.', true); console.error(e); }
+}
+document.getElementById('newTeacher').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); adminAdd(); } });
+
+async function saveResult(scores){
+  const statusEl = document.getElementById('saveStatus');
+  try{
+    const record = {
+      first: studentInfo.first,
+      last: studentInfo.last,
+      teacher: studentInfo.teacher,
+      group: studentInfo.group,
+      mc: scores.mcScore,
+      match: scores.matchScore,
+      tf: scores.tfScore,
+      total: scores.total,
+      max: scores.maxTotal,
+      pct: scores.pct,
+      details: {
+        mc: scores.mcDetails,
+        match: scores.matchDetails,
+        tf: scores.tfDetails
+      }
+    };
+    await withRetry(() => fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(record)
+    }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+    if(statusEl) statusEl.textContent = '✅ Nəticə ümumi cədvələ əlavə olundu.';
+  }catch(err){
+    if(statusEl) statusEl.innerHTML = '⚠️ Nəticə yadda saxlanmadı (server müvəqqəti cavab vermir). Bir az sonra yenidən sınayın. Detal: '+(err && err.message ? err.message : String(err));
+    console.error('Save error:', err);
+  }
+}
+
+function pctColor(pct){
+  if(pct>=80) return '#3E8E5C';
+  if(pct>=60) return '#4C8FBF';
+  if(pct>=40) return '#F2B705';
+  return '#E8573F';
+}
+
+async function loadResults(){
+  const wrap = document.getElementById('resultsTableWrap');
+  if(!wrap) return;
+  wrap.innerHTML = '<div class="empty-note">Yüklənir...</div>';
+
+  try{
+    const res = await withRetry(() => fetch(SHEETS_URL).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
+    const data = await res.json();
+    const records = (data.results || []).filter(r => r.first !== TEACHER_MARKER && r.first !== HIDE_MARKER);
+    records.forEach(r => { r._key = r.id; });
+    records.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    if(records.length===0){
+      wrap.innerHTML = '<div class="empty-note">Hələ heç bir nəticə yoxdur.</div>';
+      return;
+    }
+
+    window.__resultsRecords = {};
+    records.forEach(r => { window.__resultsRecords[r._key] = r; });
+
+    const rows = records.map(r=>{
+      const d = new Date(r.date);
+      const dateStr = d.toLocaleDateString('az-AZ') + ' ' + d.toLocaleTimeString('az-AZ',{hour:'2-digit',minute:'2-digit'});
+      return `<tr>
+        <td><button class="student-name-btn" onclick="toggleDetail('${r._key}')">${r.first} ${r.last}</button></td>
+        <td>${r.group}</td>
+        <td>${r.mc}/${mcData.length}</td>
+        <td>${r.match}/${matchAnswers.length}</td>
+        <td>${r.tf}/${tfData.length}</td>
+        <td><span class="pct-pill" style="background:${pctColor(r.pct)}">${r.pct}/100</span></td>
+        <td>${dateStr}</td>
+        <td><button class="del-btn" onclick="deleteResult('${r._key}')">🗑️ Sil</button></td>
+      </tr>
+      <tr class="detail-row" id="detail-${safeId(r._key)}" style="display:none;">
+        <td colspan="8">${generateDetailHtml(r)}</td>
+      </tr>`;
+    });
+
+    const byTeacher = {};
+    records.forEach((r,i)=>{
+      const t = r.teacher || 'Naməlum müəllim';
+      if(!byTeacher[t]) byTeacher[t] = [];
+      byTeacher[t].push(rows[i]);
+    });
+
+    const teacherOrder = ["Qaçay müəllim","Aysel müəllimə","Humay müəllimə","Tavat müəllimə",
+      "Zərifə müəllimə","Firuzə müəllimə","Leyla müəllimə","Xəzər müəllim","Yasəmən müəllimə"];
+    const teacherNames = Object.keys(byTeacher).sort((a,b)=>{
+      const ia = teacherOrder.indexOf(a), ib = teacherOrder.indexOf(b);
+      if(ia===-1 && ib===-1) return a.localeCompare(b);
+      if(ia===-1) return 1;
+      if(ib===-1) return -1;
+      return ia-ib;
+    });
+
+    const groupsHtml = teacherNames.map(t=>{
+      return `<div class="teacher-group">
+        <h3 class="teacher-heading">🧑‍🏫 ${escHtml(t)} <span class="teacher-count">(${byTeacher[t].length} şagird)</span></h3>
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <thead><tr>
+              <th>Şagird</th><th>Qrup</th>
+              <th>Seçim</th><th>Uyğ.</th><th>D/Y</th>
+              <th>Bal /100</th><th>Tarix</th><th></th>
+            </tr></thead>
+            <tbody>${byTeacher[t].join('')}</tbody>
+          </table>
+        </div>
+      </div>`;
+    }).join('');
+
+    wrap.innerHTML = groupsHtml;
+  }catch(err){
+    wrap.innerHTML = '<div class="empty-note">Nəticələr yüklənərkən xəta baş verdi.<br><span style="font-size:11px;color:var(--marker);">Detal: '+(err && err.message ? err.message : String(err))+'</span></div>';
+    console.error('Load error:', err);
+  }
+}
+
+function safeId(key){
+  return String(key).replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+function toggleDetail(key){
+  const row = document.getElementById('detail-'+safeId(key));
+  if(!row){
+    console.error('Detail row not found for key:', key);
+    return;
+  }
+  row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+}
+
+function generateDetailHtml(r){
+  const d = r.details || {};
+  const hasAny = (d.mc && d.mc.length) || (d.match && d.match.length) || (d.tf && d.tf.length);
+  if(!hasAny){
+    return '<div class="empty-note" style="padding:8px 0;">ℹ️ Bu nəticə üçün sual-sual ətraflı məlumat mövcud deyil (köhnə qeyddir və ya saxlama zamanı server xətası olub). Yalnız ümumi bal göstərilir: <b>'+r.pct+'/100</b></div>';
+  }
+  const section = (title, items) => {
+    if(!items || !items.length) return '';
+    const rows = items.map((it,i)=>{
+      const cls = it.isCorrect ? 'detail-item correct' : 'detail-item incorrect';
+      const icon = it.isCorrect ? '✔' : '✘';
+      const selectedLabel = it.selectedText != null ? it.selectedText : '(cavab verilməyib)';
+      const label = it.q || it.word || it.s;
+      return `<div class="${cls}">
+        <span class="detail-icon">${icon}</span>
+        <span class="detail-q">${i+1}. ${label}</span><br>
+        <span class="detail-answer">Cavab: <b>${selectedLabel}</b>${it.isCorrect ? '' : ' — Düzgün: <b>'+it.correctText+'</b>'}</span>
+      </div>`;
+    }).join('');
+    return `<div class="detail-block"><h4>${title}</h4>${rows}</div>`;
+  };
+  return `<div class="detail-wrap">
+    ${section('Multiple Choice', d.mc)}
+    ${section('Matching', d.match)}
+    ${section('True / False', d.tf)}
+  </div>`;
+}
+
 async function deleteResult(key){
   try{
-    if(SHEETS_URL){
-      await withRetry(()=>fetch(SHEETS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'delete',test:TEST_ID,id:key})})
-        .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r; }),3,1200);
-    } else if(typeof window.storage!=='undefined'){ await withRetry(()=>window.storage.delete(key,true),3,1200); }
-    else throw new Error('Yaddaş bağlantısı yoxdur');
+    await withRetry(() => fetch(SHEETS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'delete', id: key })
+    }).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r; }), 3, 1200);
     loadResults();
-  }catch(err){ document.getElementById('resultsTableWrap').insertAdjacentHTML('afterbegin','<div class="empty-note" style="color:var(--marker)">Silinmədi: '+esc(err&&err.message?err.message:err)+'</div>'); }
+  }catch(err){
+    const wrap = document.getElementById('resultsTableWrap');
+    const note = document.createElement('div');
+    note.className = 'empty-note';
+    note.style.color = 'var(--marker)';
+    note.textContent = 'Silinmədi (server müvəqqəti cavab vermir). Bir az sonra yenidən cəhd edin. Detal: ' + (err && err.message ? err.message : String(err));
+    wrap.prepend(note);
+    console.error('Delete error:', err);
+  }
 }
-
-fillTeachers();
-renderAll();
-loadTeachers();
 </script>
+
 <script>/* TD School loqosu: bir dəfə yüklənir, hər yerdə istifadə olunur */
 (function(){var a=document.querySelectorAll('img.td-logo');if(!a.length)return;var s=a[0].getAttribute('src');for(var i=1;i<a.length;i++)a[i].setAttribute('src',s);})();</script>
 </body>
